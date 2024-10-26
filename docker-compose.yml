@@ -7,6 +7,7 @@ services:
       - "27017:27017"
     volumes:
       - mongo_data:/data/db
+
   server:
     build: ./server
     container_name: cyberaegiz_server
@@ -16,10 +17,14 @@ services:
       - MONGO_URI=mongodb://mongo:27017/cyberaegiz
     depends_on:
       - mongodb
+
   client:
     build: ./client
     container_name: cyberaegiz_client
     ports:
       - "3000:80"
+    depends_on:
+      - server
+
 volumes:
   mongo_data:

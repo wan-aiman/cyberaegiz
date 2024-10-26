@@ -6,20 +6,21 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "dev": "nodemon server.js"
-    
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "axios": "^1.7.7",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
-    "mongoose": "^8.7.2"
+    "mongoose": "^8.7.2",
+    "multer": "^1.4.5-lts.1",
+    "node-virustotal": "^3.35.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.7"
   }
-
-  
 }
