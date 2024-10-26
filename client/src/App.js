@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import PhishingDetectionPage from './pages/PhishingDetectionPage';
-import TestApiPage from './pages/TestApiPage'; // Import the new test page
 
 const App = () => {
     return (
@@ -16,7 +15,6 @@ const App = () => {
                             <li><Link to="/">Home</Link></li>
                             <li><Link to="/about">About</Link></li>
                             <li><Link to="/phishing-detection">Phishing Detection</Link></li>
-                            <li><Link to="/test-api">Test API</Link></li> {/* Add link to test page */}
                         </ul>
                     </nav>
                 </header>
@@ -24,7 +22,6 @@ const App = () => {
                     <Route path="/" element={<HomePage />} />
                     <Route path="/about" element={<AboutPage />} />
                     <Route path="/phishing-detection" element={<PhishingDetectionPage />} />
-                    <Route path="/test-api" element={<TestApiPage />} /> {/* Add the new route */}
                 </Routes>
             </div>
         </Router>
