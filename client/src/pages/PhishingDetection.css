@@ -1,0 +1,250 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Typography */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+/* Header Styling */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 15px 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 5px 10px;
+}
+
+.login-btn {
+    background-color: #39ff14;
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+
+/* Main Content Styling */
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #fff;
+}
+
+.hero .breadcrumb {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin: 20px 0;
+}
+
+.highlight {
+    color: #39ff14;
+}
+
+.btn-learn-more {
+    background-color: #39ff14;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+/* Phishing Tool Section */
+.phishing-tool {
+    background-color: #fafafa;
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.phishing-tool h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.input-container {
+    margin: 15px 0;
+}
+
+input[type="text"], input[type="file"] {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #39ff14;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+button:hover {
+    background-color: #2eb812;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.btn-extension {
+    background-color: #39ff14;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.result {
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    white-space: pre-wrap;
+    font-family: 'Source Code Pro', monospace;
+}
+
+/* Info Section */
+.info-section, .guidelines, .protection-tips {
+    background-color: #fff;
+    padding: 40px 20px;
+    margin-top: 30px;
+    text-align: left;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+}
+
+.info-section h3, .guidelines h3, .protection-tips h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.info-section p, .guidelines p, .protection-tips p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.footer-container ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.footer-container a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    input[type="text"], input[type="file"], .result {
+        width: 90%;
+    }
+
+    .info-section, .guidelines, .protection-tips {
+        width: 90%;
+    }
+}
+
+/* Additional styling for drag-and-drop area */
+.drop-zone {
+    margin-top: 20px;
+    padding: 30px;
+    border: 2px dashed #39ff14;
+    border-radius: 8px;
+    background-color: #f8f8f8;
+    text-align: center;
+    color: #888;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.drop-zone.drag-over {
+    background-color: #d3ffd8;
+}
+
+.drop-zone input {
+    display: none;
+}
+
+.drop-zone p {
+    margin: 0;
+    font-size: 16px;
+}
