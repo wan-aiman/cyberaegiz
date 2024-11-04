@@ -1,38 +1,95 @@
+/* src/App.css */
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header {
+  background: #fff;
+  padding: 20px 0;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+nav {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.logo img {
+  width: 150px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  flex-direction: column;
+}
+
+.dropbtn:hover + .dropdown-content, .dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.login .login-button {
+  background: #01ED07;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: #000;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+footer {
+  background: #00FF08;
+  color: #000;
+  text-align: left;
+  padding: 10px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.footer-logo img {
+  width: 150px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 60px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #000;
+  font-size: 16px;
+  font-weight: 600;
 }

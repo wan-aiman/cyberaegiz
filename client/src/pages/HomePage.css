@@ -1,0 +1,136 @@
+/* src/HomePage.css */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #F5F7FA;
+    color: #000;
+}
+
+.welcome {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.welcome-text {
+    max-width: 600px;
+}
+
+.welcome-text h1 {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.welcome-text .highlight {
+    color: #01ED07;
+}
+
+.welcome-text p {
+    font-size: 20px;
+    color: #717171;
+    margin: 20px 0;
+}
+
+.welcome-text .learn-more {
+    background: #01ED07;
+    padding: 15px 30px;
+    border-radius: 12px;
+    font-size: 20px;
+    color: #000;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.welcome-image img {
+    width: 300px;
+    border-radius: 50%;
+}
+
+.features, .fortify, .defense, .audience {
+    padding: 50px 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.features h2, .fortify h2, .defense h2, .audience h2 {
+    font-size: 36px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.feature-grid, .audience-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.feature-item, .audience-item {
+    width: 250px;
+    padding: 20px;
+    background: #00FF08;
+    border-radius: 25px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.feature-item:hover, .audience-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+.feature-item img, .audience-item img {
+    width: 65px;
+    height: 65px;
+    margin-bottom: 10px;
+}
+
+.feature-item h3, .audience-item h3 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.feature-item p, .audience-item p {
+    font-size: 15px;
+    color: #333;
+}
+
+.fortify-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.fortify-subtext {
+    max-width: 600px;
+}
+
+.fortify img {
+    width: 200px;
+    margin-left: auto;
+}
+
+.defense-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.defense-text img {
+    width: 200px;
+    margin-right: auto;
+}
+
+.defense .highlight {
+    color: #01ED07;
+}
