@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import StrengthChecker from './StrengthChecker';
-import './password.css';
+import './PasswordManagement.css';
 
 function PasswordManagement() {
   const [generatedPassword, setGeneratedPassword] = useState('');
