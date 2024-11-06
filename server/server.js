@@ -8,6 +8,7 @@ const axios = require('axios');
 const fs = require('fs');
 const crypto = require('crypto'); // Node.js crypto for hashing
 const FormData = require('form-data');
+const passwordRoutes = require('./routes/password'); // Import password route
 
 dotenv.config();
 
@@ -15,6 +16,9 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
+
+// Routes
+app.use('/api/password', passwordRoutes); // Use the password route
 
 const upload = multer({
     dest: path.join(__dirname, 'uploads/')
