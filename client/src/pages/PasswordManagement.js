@@ -144,6 +144,56 @@ function PasswordManagement() {
           />
           <StrengthChecker strength={strength} />
         </div>
+
+        {/* Information Section */}
+      <div className="info-section">
+          {/* Password Generator Explanation */}
+          <div className="info-block">
+              <h2>How Does <span className="highlight">CyberAegiz</span>'s Password Generator Work?</h2>
+              <p>CyberAegiz's password generator tool helps users create strong, secure passwords by automating the inclusion of various character types. Here's the functionality breakdown:</p>
+              <ul>
+                  <li><strong>Customization:</strong> Users can select the desired password length and choose to include or exclude uppercase letters, lowercase letters, numbers, and special symbols.</li>
+                  <li><strong>Generation:</strong> The tool then generates a password based on the specified criteria, ensuring it meets the best practices for password security.</li>
+                  <li><strong>Display:</strong> The generated password is displayed to the user, who can then use it for their security needs or test its strength using the integrated strength checker.</li>
+              </ul>
+          </div>
+
+          {/* Password Strength Checker Explanation */}
+          <div className="info-block light-bg">
+              <h2>How Does <span className="highlight">CyberAegiz</span>'s Password Strength Checker Work?</h2>
+              <p>Concurrently, the password strength checker provides an assessment of user-provided passwords by analyzing their complexity and resilience against common attack methods. Here's how it operates:</p>
+              <ul>
+                  <li><strong>Input:</strong> Users can input any password they are currently using or planning to use.</li>
+                  <li><strong>Analysis:</strong> The tool evaluates the password based on factors like length, use of mixed characters, and common vulnerability patterns.</li>
+                  <li><strong>Feedback:</strong> Users receive immediate feedback on the strength of their password, categorized as Weak, Medium, Strong, or Very Strong, along with suggestions for improvement if necessary.</li>
+              </ul>
+          </div>
+
+          {/* Creating Strong Passwords */}
+          <div className="info-block">
+              <h2>How To Create and Evaluate Strong <span className="highlight">Passwords</span>?</h2>
+              <p>To assist users in better understanding and applying secure password practices, CyberAegiz offers the following guidelines:</p>
+              <ul>
+                  <li><strong>Complexity and Variety:</strong> Ensure your passwords contain a mix of uppercase letters, lowercase letters, numbers, and symbols to enhance complexity.</li>
+                  <li><strong>Length Matters:</strong> Opt for longer passwords, ideally over 12 characters, as they offer greater resistance to brute-force attacks.</li>
+                  <li><strong>Avoid Common Pitfalls:</strong> Steer clear of common words, predictable patterns, or personal information that can be easily guessed or found through social engineering.</li>
+                  <li><strong>Regular Updates:</strong> Regularly update your passwords to diminish the risk of exposure from data breaches.</li>
+                  <li><strong>Use of Passphrases:</strong> Consider using passphrases, which are longer and can be easier to remember. These are made up of multiple words strung together, potentially with creative spelling or character substitutions.</li>
+                  <li><strong>Multi-Factor Authentication:</strong> Where possible, enable multi-factor authentication (MFA) to add an extra layer of security, even if your password is compromised.</li>
+              </ul>
+          </div>
+
+          {/* Security Tips for Managing Passwords */}
+          <div className="info-block light-bg">
+              <h2>Security Tips for <span className="highlight">Managing</span> Passwords</h2>
+              <p>Refer to the tips below on how to manage your passwords proactively:</p>
+              <ul>
+                  <li><strong>Password Managers:</strong> Utilize a reputable password manager to store and manage your different passwords securely, so you don't have to remember each one.</li>
+                  <li><strong>Educate and Inform:</strong> Stay informed about the latest password security best practices and educate others around you. CyberAegiz's educational hub provides resources and articles on maintaining secure online practices.</li>
+                  <li><strong>Regular Strength Checks:</strong> Periodically check the strength of your passwords to ensure they haven't become weak over time due to evolving cracking techniques.</li>
+              </ul>
+          </div>
+      </div>
       </section>
     </main>
   );
