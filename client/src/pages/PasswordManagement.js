@@ -87,7 +87,7 @@ function PasswordManagement() {
   };
 
   return (
-    <main className="password-management">
+    <main className="">
       <section className="hero">
         <div className="hero-content">
           <h1>Welcome to <span>CyberAegiz</span></h1>
@@ -95,7 +95,7 @@ function PasswordManagement() {
         </div>
       </section>
 
-      <section className="password-management-content">
+      <section className="password-management">
         <h2>Password <span>Management</span></h2>
 
         {/* Password Generator */}
@@ -144,7 +144,9 @@ function PasswordManagement() {
           />
           <StrengthChecker strength={strength} />
         </div>
+      </section>
 
+      <section>
         {/* Information Section */}
       <div className="info-section">
           {/* Password Generator Explanation */}
