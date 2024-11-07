@@ -145,6 +145,12 @@ const PhishingDetectionPage = () => {
 
     return (
         <div className="phishing-detection-page">
+
+        <div className="hero-content">
+          <h1>Welcome to <span>CyberAegiz</span></h1>
+          <p>Your security is our priority. Generate and check the strength of your passwords here.</p>
+        </div>
+
             {/* Analysis Container */}
             <div className="phishing-tool">
                 <h2>Analyze Files, Domains, IPs, and URLs for Phishing</h2>
