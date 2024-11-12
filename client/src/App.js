@@ -1,9 +1,11 @@
 // src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import PhishingDetectionPage from './pages/PhishingDetectionPage'
+import PhishingDetectionPage from './pages/PhishingDetectionPage';
+import PasswordManagement from './pages/PasswordManagement';
 import HomePage from './pages/HomePage';
 import './App.css';
+import EncryptionDecryptionPage from './pages/EncryptionDecryptionPage';
 
 const App = () => {
     return (
@@ -22,8 +24,8 @@ const App = () => {
                                 <button className="dropbtn">Tools ▼</button>
                                 <div className="dropdown-content">
                                     <Link to="/phishing-detection">Phishing Detection</Link>
-                                    <Link to="/">Password Management</Link>
-                                    <Link to="/">Encryption & Decryption</Link>
+                                    <Link to="/password-management">Password Management</Link>
+                                    <Link to="/encryption-decryption">Encryption & Decryption</Link>
                                 </div>
                             </li>
                             <li><Link to="/">Education Hub</Link></li>
@@ -33,10 +35,14 @@ const App = () => {
                         </ul>
                     </nav>
                 </header>
+
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/phishing-detection" element={<PhishingDetectionPage />} />
+                    <Route path="/password-management" element={<PasswordManagement />} />
+                    <Route path="/encryption-decryption" element={<EncryptionDecryptionPage />} />
                 </Routes>
+
                 <footer>
                     <div className="footer-logo">
                         <Link to="/">

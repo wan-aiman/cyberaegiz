@@ -1,0 +1,85 @@
+import pandas as pd
+
+# Define data for each test case type with Pass/Fail indicators
+
+# URL Test Cases
+url_data = {
+    "Type": ["URL"] * 10,
+    "URL": [
+        "https://www.maybank2u.com.my", "https://www.kwsp.gov.my", "https://www.imi.gov.my/",
+        "https://www.gov.my", "https://www.bnm.gov.my", "https://www.llazada.com",
+        "http://cybercrime-tracker.net/", "http://vxvault.siri-urz.net", "http://www.kernelmode.info",
+        "http://youareanidiot.org"
+    ],
+    "Harmless": [70, 68, 69, 57, 68, 67, 67, 68, 69, 64],
+    "Malicious": [0, 0, 0, 0, 0, 1, 1, 0, 1, 4],
+    "Suspicious": [0, 0, 0, 0, 0, 0, 0, 1, 0, 1],
+    "Undetected": [26, 28, 27, 7, 28, 28, 28, 27, 25, 27],
+    "Result": ["Pass" if m == 0 else "Fail" for m in [0, 0, 0, 0, 0, 1, 1, 0, 1, 4]]
+}
+
+# IP Address Test Cases
+ip_data = {
+    "Type": ["IP"] * 10,
+    "IP Address": [
+        "208.67.222.222", "216.146.35.35", "156.154.71.1", "195.46.39.39", "198.153.192.40",
+        "103.25.90.18", "45.141.148.16", "103.13.210.14", "85.25.46.122", "142.4.1.27"
+    ],
+    "Harmless": [63, 60, 62, 62, 63, 56, 60, 60, 57, 58],
+    "Malicious": [0, 0, 0, 0, 0, 8, 3, 2, 3, 3],
+    "Suspicious": [0, 0, 0, 0, 0, 1, 1, 1, 4, 2],
+    "Undetected": [31, 34, 32, 32, 31, 29, 30, 31, 30, 31],
+    "Reputation": [50, "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A"],
+    "Result": ["Pass" if m == 0 else "Fail" for m in [0, 0, 0, 0, 0, 8, 3, 2, 3, 3]]
+}
+
+# Domain Test Cases
+domain_data = {
+    "Type": ["Domain"] * 10,
+    "Domain": [
+        "maybank.com", "google.com", "khazanah.com.my", "epf.gov.my", "italeemc.iium.edu.my",
+        "00043138.com", "000keca.wcomhost.com", "c1mb.com", "exsiteadmin.com", "safetypaypal.com"
+    ],
+    "Harmless": [66, 68, 63, 63, 65, 54, 52, 60, 60, 55],
+    "Malicious": [0, 0, 0, 0, 0, 9, 12, 3, 5, 8],
+    "Suspicious": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "Undetected": [28, 26, 31, 31, 29, 31, 30, 31, 29, 31],
+    "Reputation": ["N/A", 583, "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A"],
+    "Result": ["Pass" if m == 0 else "Fail" for m in [0, 0, 0, 0, 0, 9, 12, 3, 5, 8]]
+}
+
+# File Test Cases
+file_data = {
+    "Type": ["File"] * 10,
+    "File Name": [
+        "T4_2020.pdf", "Mi_Unlock_Tool_v7.6.727.43.rar", "Docker Desktop Installer.exe", 
+        "project.bat", "MSI.png", "SteamtoolsSetup.exe", "Wuwa-Cheat.dll", "Cheat.dll", 
+        "HSR.exe", "payload1.pdf"
+    ],
+    "Status": ["Clean", "Clean", "Clean", "Clean", "Clean", "Malicious", "Malicious", "Malicious", "Malicious", "Malicious"],
+    "Detections": [0, 0, 0, 0, 0, 39, 9, 22, 49, 31],
+    "Common Threats": [
+        "None", "None", "None", "None", "None", 
+        "W64.AIDetectMalware, Trojan.Win32.Generic.4!c, Trojan.Multi", 
+        "W64.AIDetectMalware, generic.ml, Trojan.Win64.Krypt", 
+        "W64.AIDetectMalware, Gen:Variant.Lazy.610115", 
+        "W64.AIDetectMalware, Trojan.Win32.ShellcodeRunner.4!c", 
+        "Hacktool.PDF.Alien.3!c, Trojan.GenericKD.67860363"
+    ],
+    "Result": ["Pass" if status == "Clean" else "Fail" for status in ["Clean", "Clean", "Clean", "Clean", "Clean", "Malicious", "Malicious", "Malicious", "Malicious", "Malicious"]]
+}
+
+# Create DataFrames for each type of test case
+url_df = pd.DataFrame(url_data)
+ip_df = pd.DataFrame(ip_data)
+domain_df = pd.DataFrame(domain_data)
+file_df = pd.DataFrame(file_data)
+
+# Write the DataFrames to an Excel file
+with pd.ExcelWriter("phishing_detection_test_results.xlsx") as writer:
+    url_df.to_excel(writer, sheet_name="URL Test Cases", index=False)
+    ip_df.to_excel(writer, sheet_name="IP Test Cases", index=False)
+    domain_df.to_excel(writer, sheet_name="Domain Test Cases", index=False)
+    file_df.to_excel(writer, sheet_name="File Test Cases", index=False)
+
+print("Excel file 'phishing_detection_test_results.xlsx' created successfully.")
