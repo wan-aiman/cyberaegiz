@@ -33,6 +33,7 @@ app.post('/encrypt', upload.single('file'), (req, res) => {
     const password = req.body.password;
     const filePath = req.file.path;
     const encryptedFilePath = `${filePath}.enc`;
+    const originalFilename = req.file.originalname;
 
     const key = crypto.createHash('sha256').update(password).digest();
     const iv = crypto.randomBytes(16); // Initialization vector
@@ -41,12 +42,16 @@ app.post('/encrypt', upload.single('file'), (req, res) => {
     const input = fs.createReadStream(filePath);
     const output = fs.createWriteStream(encryptedFilePath);
 
+    // Write the IV and original filename as metadata in the encrypted file
+    output.write(iv);
+    output.write(Buffer.from(originalFilename + '\0')); // Null-terminated filename
+
     input.pipe(cipher).pipe(output);
 
     output.on('finish', () => {
-        res.download(encryptedFilePath, 'encrypted_file.enc', (err) => {
-            fs.unlinkSync(filePath); // Delete original file
-            fs.unlinkSync(encryptedFilePath); // Delete encrypted file after download
+        res.download(encryptedFilePath, `${originalFilename}.enc`, (err) => {
+            fs.unlinkSync(filePath); // Delete the original file
+            fs.unlinkSync(encryptedFilePath); // Delete the encrypted file after download
             if (err) res.status(500).send('Error during file encryption.');
         });
     });
@@ -60,25 +65,35 @@ app.post('/decrypt', upload.single('file'), (req, res) => {
 
     const password = req.body.password;
     const filePath = req.file.path;
-    const decryptedFilePath = filePath.replace('.enc', '.dec');
 
     const key = crypto.createHash('sha256').update(password).digest();
-    const iv = Buffer.alloc(16, 0); // Placeholder IV for decryption (same as used in encryption)
-
-    const decipher = crypto.createDecipheriv(ENCRYPTION_ALGORITHM, key, iv);
     const input = fs.createReadStream(filePath);
-    const output = fs.createWriteStream(decryptedFilePath);
 
-    input.pipe(decipher).pipe(output);
+    let iv, originalFilename = '';
+    input.once('readable', () => {
+        iv = input.read(16); // Read the first 16 bytes as IV
+        let char;
+        while ((char = input.read(1)) && char[0] !== 0) { // Read until null terminator
+            originalFilename += String.fromCharCode(char[0]);
+        }
 
-    output.on('finish', () => {
-        res.download(decryptedFilePath, 'decrypted_file.txt', (err) => {
-            fs.unlinkSync(filePath); // Delete encrypted file
-            fs.unlinkSync(decryptedFilePath); // Delete decrypted file after download
-            if (err) res.status(500).send('Error during file decryption.');
+        const decryptedFilePath = path.join(__dirname, 'uploads', `decrypted_${originalFilename}`);
+
+        const decipher = crypto.createDecipheriv(ENCRYPTION_ALGORITHM, key, iv);
+        const output = fs.createWriteStream(decryptedFilePath);
+
+        input.pipe(decipher).pipe(output);
+
+        output.on('finish', () => {
+            res.download(decryptedFilePath, originalFilename, (err) => {
+                fs.unlinkSync(filePath); // Delete the encrypted file
+                fs.unlinkSync(decryptedFilePath); // Delete the decrypted file after download
+                if (err) res.status(500).send('Error during file decryption.');
+            });
         });
     });
 });
+
 
 app.post('/scan-file', upload.single('file'), async (req, res) => {
     if (!req.file) {
