@@ -8,7 +8,12 @@ const path = require('path');
 const axios = require('axios');
 const fs = require('fs');
 const crypto = require('crypto'); // Node.js crypto for encryption/decryption
+
+
+const articleRoutes = require('./routes/articleRoutes');
+const quizRoutes = require('./routes/quizRoutes');
 const passwordRoutes = require('./routes/password'); // Import password route
+const errorHandler = require('./utils/errorHandler'); // Optional error handler
 
 dotenv.config();
 
@@ -16,6 +21,40 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
+
+
+// Middleware
+app.use(cors()); // Enable CORS
+app.use(express.json()); // Parse incoming JSON requests
+
+// MongoDB Connection
+const connectDB = async () => {
+    try {
+        await mongoose.connect(process.env.MONGO_URI, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
+        console.log('MongoDB connected successfully');
+    } catch (error) {
+        console.error('MongoDB connection error:', error.message);
+        process.exit(1); // Exit process with failure
+    }
+};
+
+// Connect to the database
+connectDB();
+
+// Routes
+app.use('/api/articles', articleRoutes); // Routes for articles
+app.use('/api/quizzes', quizRoutes); // Routes for quizzes
+
+// Default Route
+app.get('/', (req, res) => {
+    res.send('API is running...');
+});
+
+// Optional Error Handler Middleware
+app.use(errorHandler);
 
 // Routes
 app.use('/api/password', passwordRoutes);
@@ -180,10 +219,6 @@ function createSummary(data) {
         last_analysis_date: new Date(data.data.attributes.last_analysis_date * 1000).toLocaleString()
     };
 }
-
-mongoose.connect(process.env.MONGO_URI)
-    .then(() => console.log('Connected to MongoDB'))
-    .catch(err => console.error('Failed to connect to MongoDB', err));
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
