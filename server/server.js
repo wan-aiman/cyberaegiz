@@ -9,6 +9,11 @@ const axios = require('axios');
 const fs = require('fs');
 const crypto = require('crypto'); // Node.js crypto for encryption/decryption
 const passwordRoutes = require('./routes/password'); // Import password route
+const User = require('./models/User');
+const Quiz = require('./models/Quiz');
+const Module = require('./models/Module');
+const educationHubRoutes = require('./routes/educationHub');
+const assessmentRoutes = require('./routes/assessment');
 
 dotenv.config();
 
@@ -19,6 +24,8 @@ app.use(cors());
 
 // Routes
 app.use('/api/password', passwordRoutes);
+app.use('/api/education-hub', educationHubRoutes);
+app.use('/api/education-hub/assessment', assessmentRoutes);
 
 const upload = multer({ dest: path.join(__dirname, 'uploads/') });
 const PORT = process.env.PORT || 5001;

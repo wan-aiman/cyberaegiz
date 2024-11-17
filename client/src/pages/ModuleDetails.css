@@ -1,0 +1,27 @@
+.module-details {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  background: #1e1e1e;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.module-details h1 {
+  color: #00ff00;
+  margin-bottom: 20px;
+}
+
+.module-details p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.module-details .module-content {
+  margin-top: 20px;
+}
+
+.module-details .module-content h3 {
+  color: #00ff00;
+  margin-bottom: 10px;
+}

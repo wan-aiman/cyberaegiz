@@ -1,0 +1,127 @@
+.education-hub {
+    font-family: 'Source Code Pro', monospace;
+    padding: 20px;
+    background-color: #111; /* Assuming dark mode */
+    color: #fff;
+  }
+  
+  .education-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .education-header h1 {
+    font-size: 36px;
+    color: #fff;
+  }
+  
+  .education-header .highlight {
+    color: #00ff08;
+  }
+  
+  .education-header p {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #ddd;
+  }
+  
+  .quick-assessment-btn {
+    background-color: #00ff08;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .quick-assessment-btn:hover {
+    background-color: #00e807;
+  }
+  
+  /* Categories Section */
+  .category-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .category-buttons button {
+    background-color: #333;
+    border: 1px solid #555;
+    border-radius: 12px;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: #fff;
+  }
+  
+  .category-buttons button:hover {
+    background-color: #00ff08;
+    color: #000;
+  }
+  
+  .category-btn.active {
+    background-color: #00ff00;
+    color: #000;
+    font-weight: bold;
+  }
+  
+  .category-btn {
+    background: #333;
+    color: #fff;
+    border: 1px solid #444;
+    padding: 8px 16px;
+    border-radius: 20px;
+    margin: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .category-btn:hover {
+    background-color: #444;
+  }
+  
+  .modules-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+  
+  .module-card {
+    background: #222;
+    color: #fff;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 16px;
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .module-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .module-card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .learn-more-btn {
+    background-color: #00ff00;
+    color: #000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .learn-more-btn:hover {
+    background-color: #00cc00;
+  }
+  

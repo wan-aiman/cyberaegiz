@@ -6,6 +6,9 @@ import PasswordManagement from './pages/PasswordManagement';
 import HomePage from './pages/HomePage';
 import './App.css';
 import EncryptionDecryptionPage from './pages/EncryptionDecryptionPage';
+import EducationHub from './pages/EducationHub';
+import ModuleDetails from './pages/ModuleDetails';
+import QuickAssessment from './pages/QuickAssessment';
 
 const App = () => {
     return (
@@ -28,7 +31,7 @@ const App = () => {
                                     <Link to="/encryption-decryption">Encryption & Decryption</Link>
                                 </div>
                             </li>
-                            <li><Link to="/">Education Hub</Link></li>
+                            <li><Link to="/education-hub">Education Hub</Link></li>
                             <div className="login">
                                 <Link to="/" className="login-button">Login</Link>
                             </div>
@@ -41,6 +44,9 @@ const App = () => {
                     <Route path="/phishing-detection" element={<PhishingDetectionPage />} />
                     <Route path="/password-management" element={<PasswordManagement />} />
                     <Route path="/encryption-decryption" element={<EncryptionDecryptionPage />} />
+                    <Route path="/education-hub" element={<EducationHub />} />
+                    <Route path="/module/:moduleId" element={<ModuleDetails />} /> {/* Added dynamic route */}
+                    <Route path="/education-hub/quick-assessment" element={<QuickAssessment />} />
                 </Routes>
 
                 <footer>
