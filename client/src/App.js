@@ -6,7 +6,9 @@ import PasswordManagement from './pages/PasswordManagement';
 import HomePage from './pages/HomePage';
 import './App.css';
 import EncryptionDecryptionPage from './pages/EncryptionDecryptionPage';
-import EducationHub from './pages/EducationHub/EducationHub';
+import EducationHub from './pages/EducationHub';
+import ModuleDetails from './pages/ModuleDetails';
+import QuickAssessment from './pages/QuickAssessment';
 
 function App() {
     return (
@@ -42,7 +44,9 @@ function App() {
                     <Route path="/phishing-detection" element={<PhishingDetectionPage />} />
                     <Route path="/password-management" element={<PasswordManagement />} />
                     <Route path="/encryption-decryption" element={<EncryptionDecryptionPage />} />
-                    <Route path="/education-hub/*" element={<EducationHub />} />
+                    <Route path="/education-hub" element={<EducationHub />} />
+                    <Route path="/module/:moduleId" element={<ModuleDetails />} /> {/* Added dynamic route */}
+                    <Route path="/education-hub/quick-assessment" element={<QuickAssessment />} />
                 </Routes>
 
                 <footer>
