@@ -1,0 +1,42 @@
+.quick-assessment {
+    max-width: 600px;
+    margin: auto;
+    text-align: left;
+}
+
+.question {
+    margin-bottom: 20px;
+}
+
+.question h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.submit-btn {
+    background-color: #32cd32;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.submit-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.result-section {
+    text-align: center;
+}
+
+.result-section h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.result-section ul {
+    list-style: none;
+    padding: 0;
+}
