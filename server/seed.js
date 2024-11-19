@@ -70,28 +70,121 @@ const seedData = async () => {
 
         // Seed modules
         const modules = [
-          {
+            {
               title: 'Cybersecurity Basics',
-              description: 'An introduction to the key concepts in cybersecurity.',
+              description: 'Understand the key principles of cybersecurity and how to protect yourself online.',
               estimatedTime: 30,
-              content: 'This module covers phishing, malware, and more.',
+              content: [
+                {
+                  title: 'Phishing Awareness',
+                  details: `
+                    Phishing involves fraudulent attempts to steal sensitive information via deceptive emails or websites.
+                    - *Key Signs*: Generic greetings, urgent calls to action, and unverified links.
+                    - *Practical Tip*: Verify sender details and hover over links before clicking.
+                  `,
+                },
+                {
+                  title: 'Malware Protection',
+                  details: `
+                    Malware refers to malicious software, including viruses, spyware, and ransomware.
+                    - *How to Stay Safe*: Use updated antivirus programs and avoid downloads from untrusted sources.
+                  `,
+                },
+                {
+                  title: 'Password Best Practices',
+                  details: `
+                    Strong passwords are crucial for securing accounts.
+                    - *Tools*: Password managers like LastPass or Dashlane simplify management and enhance security.
+                  `,
+                },
+                {
+                  title: 'Safe Browsing Habits',
+                  details: `
+                    Recognize secure websites by checking for "https://" and the padlock icon.
+                    - Avoid public Wi-Fi for sensitive transactions or use a VPN.
+                  `,
+                },
+              ],
               category: categoryMap['Cybersecurity Essentials'],
-          },
-          {
+            },
+            {
               title: 'Understanding MFA',
-              description: 'Learn about multi-factor authentication and why it matters.',
+              description: 'Learn how multi-factor authentication protects your accounts.',
               estimatedTime: 20,
-              content: 'Covers MFA concepts and tools to secure your accounts.',
+              content: [
+                {
+                  title: 'What is MFA?',
+                  details: `
+                    MFA prevents unauthorized access even if passwords are compromised.
+                    - Common methods: SMS codes, authenticator apps, or biometric authentication.
+                  `,
+                },
+                {
+                  title: 'Types of MFA',
+                  details: `
+                    - *SMS/Email Verification*: A one-time code sent to your phone or email.
+                    - *Authenticator Apps*: Apps like Google Authenticator and Authy generate time-sensitive codes.
+                    - *Biometrics*: Fingerprint or facial recognition.
+                  `,
+                },
+                {
+                  title: 'How to Enable MFA',
+                  details: `
+                    - Navigate to the "Security" section of an account.
+                    - Link a preferred MFA method (e.g., Google Authenticator).
+                    - Save recovery codes for emergencies.
+                  `,
+                },
+                {
+                  title: 'Overcoming Challenges',
+                  details: `
+                    Losing access to your device? Set up multiple verification methods or recovery emails.
+                  `,
+                },
+              ],
               category: categoryMap['Authentication Control'],
-          },
-          {
+            },
+            {
               title: 'Online Privacy Strategies',
-              description: 'Tips and techniques for staying safe online.',
+              description: 'Explore methods to safeguard your online presence.',
               estimatedTime: 25,
-              content: 'Learn how to use strong passwords and protect your data.',
+              content: [
+                {
+                  title: 'Data Protection',
+                  details: `
+                    - Regularly review and update privacy settings on social media.
+                    - Use strong, unique passwords and enable MFA.
+                  `,
+                },
+                {
+                  title: 'Browser Safety',
+                  details: `
+                    - Clear cookies and cache to minimize tracking.
+                    - Install privacy-enhancing extensions like Privacy Badger or Ghostery.
+                  `,
+                },
+                {
+                  title: 'Social Media Awareness',
+                  details: `
+                    - Be mindful of oversharing personal information online.
+                    - Adjust settings to limit visibility of posts and connections.
+                  `,
+                },
+                {
+                  title: 'Using VPNs',
+                  details: `
+                    A VPN encrypts internet traffic, masking your identity on public networks.
+                    - Choose a trusted VPN provider like NordVPN or ExpressVPN.
+                  `,
+                },
+              ],
               category: categoryMap['Online Safety and Privacy'],
-          },
-      ];
+            },
+          ];
+          
+          module.exports = modules;
+          
+                   
 
         await Module.insertMany(modules);
         console.log('Modules seeded.');

@@ -7,7 +7,7 @@ const EducationHub = () => {
   const [categories, setCategories] = useState([]);
   const [modules, setModules] = useState([]);
   const [filteredModules, setFilteredModules] = useState([]);
-  const [activeCategory, setActiveCategory] = useState('All Articles'); // Default category
+  const [activeCategory, setActiveCategory] = useState('All Articles');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,7 +17,7 @@ const EducationHub = () => {
         const moduleResponse = await axios.get('http://localhost:5001/api/education-hub/modules');
         setCategories(categoryResponse.data);
         setModules(moduleResponse.data);
-        setFilteredModules(moduleResponse.data); // Show all modules initially
+        setFilteredModules(moduleResponse.data);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -26,35 +26,32 @@ const EducationHub = () => {
     fetchData();
   }, []);
 
-  // Handle category button clicks
   const handleCategoryClick = (categoryId, categoryName) => {
     setActiveCategory(categoryName);
-    if (categoryName === 'All Articles') {
-      setFilteredModules(modules); // Show all modules
-    } else {
-      // Filter modules based on the selected category
-      const filtered = modules.filter((module) => module.category === categoryId);
-      setFilteredModules(filtered);
-    }
+    setFilteredModules(
+      categoryName === 'All Articles' ? modules : modules.filter((module) => module.category === categoryId)
+    );
   };
 
   return (
     <div className="education-hub">
-      {/* Header Section */}
-      <header className="education-header">
-        <h1>
-          Education <span className="highlight">Hub</span>
-        </h1>
+      <div className="hero-content">
+      <h1>
+    Education <span className="highlight">Hub</span>
+      </h1>
         <p>
-          Empower your cyber safety with expert knowledge – Explore the CyberAegiz's Education Hub today! Take a quick
-          assessment to get personalized suggestions on what you should improve.
+          Empower your cyber safety with expert knowledge. Explore CyberAegiz's Education Hub today!
+          Take a quick assessment to get personalized suggestions on what you should improve.
         </p>
-        <button className="quick-assessment-btn"
-        onClick={() => window.location.href = '/education-hub/quick-assessment'}
-        >Quick Assessment</button>
-      </header>
+      </div>
 
-      {/* Categories Section */}
+      <div className="quick-assessment-buttons"><button
+          className="quick-assessment-btn"
+          onClick={() => navigate('/education-hub/quick-assessment')}
+        >
+          Quick Assessment
+        </button></div>
+
       <div className="category-buttons">
         <button
           className={`category-btn ${activeCategory === 'All Articles' ? 'active' : ''}`}
@@ -73,21 +70,14 @@ const EducationHub = () => {
         ))}
       </div>
 
-      {/* Modules Section */}
       <div className="modules-container">
         {filteredModules.length > 0 ? (
           filteredModules.map((module) => (
             <div className="module-card" key={module._id}>
-              <img
-                src="https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=600" // Replace with actual image URL if available
-                alt={module.title}
-              />
+              <img src={module.image || 'PasswordHacker.png'} alt={module.title} />
               <h3>{module.title}</h3>
               <p>{module.description}</p>
-              <button
-                className="learn-more-btn"
-                onClick={() => navigate(`/module/${module._id}`)} // Navigate to dynamic route
-              >
+              <button className="learn-more-btn" onClick={() => navigate(`/module/${module._id}`)}>
                 Learn More
               </button>
             </div>
