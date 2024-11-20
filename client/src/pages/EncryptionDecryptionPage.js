@@ -78,38 +78,48 @@ const EncryptionDecryptionPage = () => {
         </div>
                     {/* Information Section */}
                     <div className="info-section">
-                <div className="info-block">
-                    <h2>How Does <span className="highlight">CyberAegiz</span>’s Phishing Detection Work?</h2>
-                    <p>CyberAegiz’s phishing link checker leverages a sophisticated machine-learning algorithm to detect phishing and malicious websites. Here’s a breakdown of the process:</p>
+                    <div className="info-block">
+                        <h2>How Does <span className="highlight">CyberAegiz</span>'s Encryption & Decryption Tool Work?</h2>
+                        <p>CyberAegiz's encryption tool allows users to secure their sensitive data by encrypting files and folders with advanced algorithms. Here’s a breakdown of the process:</p>
                         <ul>
-                            <li><strong>URL Extraction:</strong> The tool extracts all URLs from the text inputted by the user.</li>
-                            <li><strong>URL Scanning:</strong> These URLs are then scanned to detect any issues, utilizing a comprehensive dataset of real-time updated phishing URLs.</li>
-                            <li><strong>Result Indication:</strong> The tool categorizes each URL as either "Good" or "Suspicious," providing users with clear feedback on the safety of the links they've checked.</li>
+                            <li><strong>Encryption:</strong> Users select files or folders for encryption from their device. The tool then encrypts the selected data using robust encryption standards, ensuring that the contents are inaccessible without the correct decryption key.</li>
+                            <li><strong>Decryption:</strong> To access the encrypted data, users must provide the correct decryption key. Once verified, the tool reverses the encryption process, allowing users to access their original files safely.</li>
                         </ul>
-                </div>
-                <div className="info-block light-bg">
-                    <h2>How To <span className="highlight">Identify</span> Phishing URL?</h2>
-                    <p>Users of CyberAegiz can enhance their ability to identify phishing attempts by following these guidelines:</p>
+                    </div>
+                    
+                    <div className="info-block light-bg">
+                        <h2>How To Use <span className="highlight">Encryption/Decryption</span> Effectively?</h2>
+                        <p>To maximize the benefits of CyberAegiz's encryption tool, users are advised to:</p>
                         <ul>
-                            <li><strong>Legitimacy of the Message:</strong> Scrutinize the authenticity of any link received, especially those that direct to external websites.</li>
-                            <li><strong>Urgency and Action:</strong> Be wary of links that urge immediate action, as this could be a tactic to exploit user emotions.</li>
-                            <li><strong>Sender and Intent:</strong> Analyze who sent the message and their intent. If it appears unusual, verify through direct communication.</li>
-                            <li><strong>Spelling and Grammar:</strong> Look for spelling or grammatical errors. Many phishing attempts contain errors to evade spam filters.</li>
-                            <li><strong>Personal Information Requests:</strong> Be cautious of unsolicited requests for sensitive information.</li>
-                            <li><strong>URL Analysis:</strong> Examine the URL closely. Hover over links to check their destination before clicking, and be alert for deceptive homographs in domain names.</li>
-                            <li><strong>HTTPS and Security Certificates:</strong> Prefer websites with HTTPS, indicating the presence of a security certificate which encrypts data between your browser and the site.</li>
+                            <li><strong>Secure Key Management:</strong> Always keep encryption keys secure and separate from the data they encrypt. Consider using a key management service if managing keys across multiple devices or platforms.</li>
+                            <li><strong>Strong Encryption Standards:</strong> Opt for strong, well-known encryption algorithms to ensure data security. CyberAegiz supports multiple standards, allowing users to choose the best fit for their needs.</li>
+                            <li><strong>Regular Updates:</strong> Regularly update encryption software to protect against vulnerabilities and ensure compatibility with the latest security practices.</li>
                         </ul>
-                </div>
-                <div className="info-block">
-                    <h2>How To <span className="highlight">Protect</span> Against URL Phishing?</h2>
-                    <p>Users of CyberAegiz can enhance their knowledge to protect themselves from phishing attempts by following these guidelines:</p>
+                    </div>
+                    
+                    <div className="info-block">
+                        <h2>How To Create and Evaluate Strong <span className="highlight">Passwords</span>?</h2>
+                        <p>To assist users in better understanding and applying secure password practices, CyberAegiz offers the following guidelines:</p>
                         <ul>
-                            <li><strong>Security Awareness:</strong> Regular training and awareness are crucial. Educate employees or users on how to scrutinize phishing URLs, recognize scams, and understand various cyber attack methods.</li>
-                            <li><strong>URL Filtering:</strong> Exercise caution with emails asking to click links. Always verify the URL’s authenticity.</li>
-                            <li><strong>Phishing Detection Technology:</strong> Use CyberAegiz’s phishing link checker to assess the safety of URLs, enhancing your defenses against cyber threats.</li>
+                            <li><strong>Complexity and Variety:</strong> Ensure your passwords contain a mix of uppercase letters, lowercase letters, numbers, and symbols to enhance complexity.</li>
+                            <li><strong>Length Matters:</strong> Opt for longer passwords, ideally over 12 characters, as they offer greater resistance to brute-force attacks.</li>
+                            <li><strong>Avoid Common Pitfalls:</strong> Steer clear of common words, predictable patterns, or personal information that can be easily guessed or found through social engineering.</li>
+                            <li><strong>Regular Updates:</strong> Regularly update your passwords to diminish the risk of exposure from data breaches.</li>
+                            <li><strong>Use of Passphrases:</strong> Consider using passphrases, which are longer and can be easier to remember. These are made up of multiple words strung together, potentially with creative spelling or character substitutions.</li>
+                            <li><strong>Multi-Factor Authentication:</strong> Where possible, enable multi-factor authentication (MFA) to add an extra layer of security, even if your password is compromised.</li>
                         </ul>
+                    </div>
+                    
+                    <div className="info-block light-bg">
+                        <h2>Security <span className="highlight">Practices</span> for Handling Sensitive Data</h2>
+                        <p>Refer to the tips below on how to manage your passwords proactively:</p>
+                        <ul>
+                            <li><strong>Data Backup:</strong> Always keep backups of important data before encrypting, to prevent loss in case of encryption errors or key misplacement.</li>
+                            <li><strong>Educational Resources:</strong> Leverage CyberAegiz's educational content to understand more about the importance of encryption and best practices for secure data handling.</li>
+                            <li><strong>Access Control:</strong> Limit access to encrypted files to those who absolutely need it, minimizing the risk of unauthorized disclosure.</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
     </div>   
     );
 };

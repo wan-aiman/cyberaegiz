@@ -10,7 +10,7 @@ import EducationHub from './pages/EducationHub';
 import ModuleDetails from './pages/ModuleDetails';
 import QuickAssessment from './pages/QuickAssessment';
 
-const App = () => {
+function App() {
     return (
         <Router>
             <div className="App">
@@ -65,6 +65,6 @@ const App = () => {
             </div>
         </Router>
     );
-};
+}
 
 export default App;
