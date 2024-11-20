@@ -10,8 +10,6 @@ const fs = require('fs');
 const crypto = require('crypto'); // Node.js crypto for encryption/decryption
 
 
-const articleRoutes = require('./routes/articleRoutes');
-const quizRoutes = require('./routes/quizRoutes');
 const passwordRoutes = require('./routes/password'); // Import password route
 const User = require('./models/User');
 const Quiz = require('./models/Quiz');
@@ -49,16 +47,12 @@ const connectDB = async () => {
 connectDB();
 
 // Routes
-app.use('/api/articles', articleRoutes); // Routes for articles
-app.use('/api/quizzes', quizRoutes); // Routes for quizzes
-
 // Default Route
 app.get('/', (req, res) => {
     res.send('API is running...');
 });
 
 // Optional Error Handler Middleware
-app.use(errorHandler);
 
 // Routes
 app.use('/api/password', passwordRoutes);
