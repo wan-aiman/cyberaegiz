@@ -57,7 +57,7 @@ const EducationHub = () => {
           className={`category-btn ${activeCategory === 'All Articles' ? 'active' : ''}`}
           onClick={() => handleCategoryClick(null, 'All Articles')}
         >
-          All Articles
+          All Modules
         </button>
         {categories.map((category) => (
           <button

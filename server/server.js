@@ -45,14 +45,13 @@ const connectDB = async () => {
 // Connect to the database
 connectDB();
 
-
+// Routes
 // Default Route
 app.get('/', (req, res) => {
     res.send('API is running...');
 });
 
 // Optional Error Handler Middleware
-app.use(errorHandler);
 
 // Routes
 app.use('/api/password', passwordRoutes);

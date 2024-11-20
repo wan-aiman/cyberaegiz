@@ -13,7 +13,7 @@ header {
 nav {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; /* Aligns everything in the navbar */
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
@@ -26,6 +26,7 @@ nav {
 .nav-links {
   list-style: none;
   display: flex;
+  align-items: center; /* Centers links vertically */
   gap: 40px;
 }
 
@@ -33,6 +34,18 @@ nav {
   text-decoration: none;
   color: #000;
   font-weight: bold;
+}
+
+.dropbtn {
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+  background: none;
+  border: none;
+  cursor: pointer;
+  vertical-align: middle; /* Ensures proper alignment */
+  display: flex;
+  align-items: center;
 }
 
 .dropdown {
@@ -71,13 +84,14 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
   margin: 0 auto;
   width: 100%;
+  align-items: center;
 }
 
 .footer-logo img {
   width: 150px;
+  margin-left: 70px;
 }
 
 .footer-links {
@@ -85,6 +99,7 @@ footer {
   padding: 0;
   display: flex;
   gap: 60px;
+  margin-right: 70px;
 }
 
 .footer-links a {
