@@ -48,9 +48,6 @@ const connectDB = async () => {
 // Connect to the database
 connectDB();
 
-// Routes
-app.use('/api/articles', articleRoutes); // Routes for articles
-app.use('/api/quizzes', quizRoutes); // Routes for quizzes
 
 // Default Route
 app.get('/', (req, res) => {
