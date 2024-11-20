@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './QuickAssessment.css';
+import { Link } from 'react-router-dom';
 
 const QuickAssessment = () => {
     const [questions, setQuestions] = useState([]);
@@ -39,43 +40,54 @@ const QuickAssessment = () => {
     };
 
     return (
-        <div className="quick-assessment">
-            <h2>Quick Assessment</h2>
-            {result ? (
-                <div className="result-section">
-                    <h3>Your Score: {result.score}</h3>
-                    <p>Based on your answers, we recommend the following modules:</p>
-                    <ul>
-                        {result.suggestions.map((module) => (
-                            <li key={module._id}>{module.title}</li>
-                        ))}
-                    </ul>
-                </div>
-            ) : (
-                <div>
-                    {questions.map((question, index) => (
-                        <div key={index} className="question">
-                            <h4>{question.question}</h4>
-                            {question.options.map((option, optIndex) => (
-                                <div key={optIndex}>
-                                    <input
-                                        type="radio"
-                                        name={`question-${index}`}
-                                        checked={answers[index] === optIndex}
-                                        onChange={() => handleAnswerChange(index, optIndex)}
-                                    />
-                                    <label>{option}</label>
-                                </div>
-                            ))}
-                        </div>
-                    ))}
-                    <button className="submit-btn" onClick={handleSubmit} disabled={loading}>
-                        {loading ? 'Submitting...' : 'Submit'}
-                    </button>
-                </div>
-            )}
+<div className="quick-assessment">
+    <h2>Quick Assessment</h2>
+    {result ? (
+        <div className="result-section">
+            <h3>Your Score: {result.score}</h3>
+            <p>Based on your answers, we recommend the following modules:</p>
+            <div className="module-suggestions">
+                {result.suggestions.map((module) => (
+                    <div className="module-card" key={module._id}>
+                        <h4>{module.title}</h4>
+                        <p>{module.description}</p>
+                        <Link to={`/module/${module._id}`} className="learn-more-link">
+                            Learn More
+                        </Link>
+                    </div>
+                ))}
+            </div>
         </div>
-    );
+    ) : (
+        <form>
+            {questions.map((question, index) => (
+                <div key={index} className="question">
+                    <h4>{question.question}</h4>
+                    {question.options.map((option, optIndex) => (
+                        <label key={optIndex}>
+                            <input
+                                type="radio"
+                                name={`question-${index}`}
+                                checked={answers[index] === optIndex}
+                                onChange={() => handleAnswerChange(index, optIndex)}
+                            />
+                            {option}
+                        </label>
+                    ))}
+                </div>
+            ))}
+            <button
+                className="submit-btn"
+                type="button"
+                onClick={handleSubmit}
+                disabled={loading || answers.includes(null)}
+            >
+                {loading ? 'Submitting...' : 'Submit'}
+            </button>
+        </form>
+    )}
+</div>
+    );  
 };
 
 export default QuickAssessment;

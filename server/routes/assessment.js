@@ -24,6 +24,26 @@ const questions = [
         correctAnswer: 2,
         category: 'Online Safety and Privacy', // Will be replaced with category ID dynamically
     },
+    {
+        question: 'What is a common sign of a cyberattack in progress?',
+        options: [
+            'A slow internet connection',
+            'Unauthorized access alerts',
+            'Battery draining quickly on your phone'
+        ],
+        correctAnswer: 1,
+        category: 'Threat Recognition & Response', // Will be replaced with category ID dynamically
+    },
+    {
+        question: 'Which of the following is an effective data protection strategy?',
+        options: [
+            'Using a single password for all accounts',
+            'Encrypting sensitive files',
+            'Sharing login credentials with trusted colleagues'
+        ],
+        correctAnswer: 1,
+        category: 'Data Protection', // Will be replaced with category ID dynamically
+    },
 ];
 
 // Middleware to dynamically replace category names with IDs
@@ -62,9 +82,9 @@ router.post('/submit', async (req, res) => {
         questions.forEach((question, index) => {
             const userAnswer = answers[index];
             if (userAnswer === question.correctAnswer) {
-                score += 1; // Correct answer
+                score += 10; // Correct answer
             } else {
-                weakCategories[question.category] = (weakCategories[question.category] || 0) + 1;
+                weakCategories[question.category] = (weakCategories[question.category] || 0) + 10;
             }
         });
 
