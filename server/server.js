@@ -9,9 +9,6 @@ const axios = require('axios');
 const fs = require('fs');
 const crypto = require('crypto'); // Node.js crypto for encryption/decryption
 
-
-const articleRoutes = require('./routes/articleRoutes');
-const quizRoutes = require('./routes/quizRoutes');
 const passwordRoutes = require('./routes/password'); // Import password route
 const User = require('./models/User');
 const Quiz = require('./models/Quiz');
