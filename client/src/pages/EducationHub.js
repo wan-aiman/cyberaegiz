@@ -37,7 +37,7 @@ const EducationHub = () => {
     <div className="education-hub">
       <div className="hero-content">
       <h1>
-    Education <span className="highlight">Hub</span>
+    Security Awareness <span className="highlight">Training</span>
       </h1>
         <p>
           Empower your cyber safety with expert knowledge. Explore CyberAegiz's Education Hub today!
