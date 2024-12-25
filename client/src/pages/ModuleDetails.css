@@ -1,0 +1,172 @@
+/* Container for the module details */
+.module-details {
+  padding: 40px;
+  max-width: 1000px;
+  margin: 40px auto;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+  line-height: 1.8;
+}
+
+/* Title Section */
+.module-details h1 {
+  font-size: 2.75rem;
+  color: #01ED07;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* Information Section */
+.module-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.module-info p {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.module-info p span {
+  font-weight: bold;
+  color: #01ED07;
+}
+
+/* Content Section */
+.module-content {
+  margin-top: 40px;
+}
+
+.module-content h2 {
+  font-size: 2rem;
+  color: #01ED07;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 10px;
+}
+
+/* Collapsible Topic Card */
+.topic-card {
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.topic-card-header {
+  background: #01ED07;
+  color: #ffffff;
+  padding: 15px 20px;
+  cursor: pointer;
+  font-size: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topic-card-header:hover {
+  background: #00d906;
+}
+
+.topic-card-body {
+  padding: 20px;
+  display: none;
+  background: #ffffff;
+  color: #555;
+}
+
+.topic-card-body p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.topic-card-body ul {
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+.topic-card-body ul li {
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+/* Icon for Expand/Collapse */
+.topic-card-header .icon {
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.topic-card-header.active .icon {
+  transform: rotate(180deg);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .module-details {
+    padding: 20px;
+  }
+
+  .module-info {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .module-details h1 {
+    font-size: 2rem;
+  }
+
+  .module-content h2 {
+    font-size: 1.5rem;
+  }
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 300px; /* Increased width for better spacing */
+  margin: 20px auto;
+}
+
+.navigation button {
+  background: linear-gradient(45deg, #01ED07, #00d906); /* Modern gradient effect */
+  color: white;
+  border: none;
+  border-radius: 50%; /* Rounded buttons */
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.navigation button:hover {
+  background: linear-gradient(45deg, #00d906, #01ED07); /* Slight color reversal on hover */
+  transform: scale(1.1); /* Slight enlargement effect */
+}
+
+.navigation button:disabled {
+  background: #ccc; /* Neutral color for disabled state */
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.navigation span {
+  font-size: 1.25rem;
+  color: #555;
+  font-weight: bold;
+}

@@ -1,3 +1,4 @@
+// server.js
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -6,9 +7,14 @@ const multer = require('multer');
 const path = require('path');
 const axios = require('axios');
 const fs = require('fs');
-const crypto = require('crypto'); // Node.js crypto for hashing
-const FormData = require('form-data');
+const crypto = require('crypto'); // Node.js crypto for encryption/decryption
+
 const passwordRoutes = require('./routes/password'); // Import password route
+const User = require('./models/User');
+const Quiz = require('./models/Quiz');
+const Module = require('./models/Module');
+const educationHubRoutes = require('./routes/educationHub');
+const assessmentRoutes = require('./routes/assessment');
 
 dotenv.config();
 
@@ -17,22 +23,115 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+
+// Middleware
+app.use(cors()); // Enable CORS
+app.use(express.json()); // Parse incoming JSON requests
+
+// MongoDB Connection
+const connectDB = async () => {
+    try {
+        await mongoose.connect(process.env.MONGO_URI, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
+        console.log('MongoDB connected successfully');
+    } catch (error) {
+        console.error('MongoDB connection error:', error.message);
+        process.exit(1); // Exit process with failure
+    }
+};
+
+// Connect to the database
+connectDB();
+
 // Routes
-app.use('/api/password', passwordRoutes); // Use the password route
-
-const upload = multer({
-    dest: path.join(__dirname, 'uploads/')
-});
-
-const PORT = process.env.PORT || 5001;
-
+// Default Route
 app.get('/', (req, res) => {
-    res.send('CyberAegiz server is running');
+    res.send('API is running...');
 });
 
-app.get('/test', (req, res) => {
-    res.json({ message: 'Test route is working!' });
+// Optional Error Handler Middleware
+
+// Routes
+app.use('/api/password', passwordRoutes);
+app.use('/api/education-hub', educationHubRoutes);
+app.use('/api/education-hub/assessment', assessmentRoutes);
+
+const upload = multer({ dest: path.join(__dirname, 'uploads/') });
+const PORT = process.env.PORT || 5001;
+const ENCRYPTION_ALGORITHM = 'aes-256-cbc';
+
+// Encryption endpoint
+app.post('/encrypt', upload.single('file'), (req, res) => {
+    if (!req.file || !req.body.password) {
+        return res.status(400).send('File and password are required.');
+    }
+
+    const password = req.body.password;
+    const filePath = req.file.path;
+    const encryptedFilePath = `${filePath}.enc`;
+    const originalFilename = req.file.originalname;
+
+    const key = crypto.createHash('sha256').update(password).digest();
+    const iv = crypto.randomBytes(16); // Initialization vector
+
+    const cipher = crypto.createCipheriv(ENCRYPTION_ALGORITHM, key, iv);
+    const input = fs.createReadStream(filePath);
+    const output = fs.createWriteStream(encryptedFilePath);
+
+    // Write the IV and original filename as metadata in the encrypted file
+    output.write(iv);
+    output.write(Buffer.from(originalFilename + '\0')); // Null-terminated filename
+
+    input.pipe(cipher).pipe(output);
+
+    output.on('finish', () => {
+        res.download(encryptedFilePath, `${originalFilename}.enc`, (err) => {
+            fs.unlinkSync(filePath); // Delete the original file
+            fs.unlinkSync(encryptedFilePath); // Delete the encrypted file after download
+            if (err) res.status(500).send('Error during file encryption.');
+        });
+    });
 });
+
+// Decryption endpoint
+app.post('/decrypt', upload.single('file'), (req, res) => {
+    if (!req.file || !req.body.password) {
+        return res.status(400).send('File and password are required.');
+    }
+
+    const password = req.body.password;
+    const filePath = req.file.path;
+
+    const key = crypto.createHash('sha256').update(password).digest();
+    const input = fs.createReadStream(filePath);
+
+    let iv, originalFilename = '';
+    input.once('readable', () => {
+        iv = input.read(16); // Read the first 16 bytes as IV
+        let char;
+        while ((char = input.read(1)) && char[0] !== 0) { // Read until null terminator
+            originalFilename += String.fromCharCode(char[0]);
+        }
+
+        const decryptedFilePath = path.join(__dirname, 'uploads', `decrypted_${originalFilename}`);
+
+        const decipher = crypto.createDecipheriv(ENCRYPTION_ALGORITHM, key, iv);
+        const output = fs.createWriteStream(decryptedFilePath);
+
+        input.pipe(decipher).pipe(output);
+
+        output.on('finish', () => {
+            res.download(decryptedFilePath, originalFilename, (err) => {
+                fs.unlinkSync(filePath); // Delete the encrypted file
+                fs.unlinkSync(decryptedFilePath); // Delete the decrypted file after download
+                if (err) res.status(500).send('Error during file decryption.');
+            });
+        });
+    });
+});
+
 
 app.post('/scan-file', upload.single('file'), async (req, res) => {
     if (!req.file) {
@@ -119,11 +218,6 @@ function createSummary(data) {
         last_analysis_date: new Date(data.data.attributes.last_analysis_date * 1000).toLocaleString()
     };
 }
-
-// MongoDB connection
-mongoose.connect(process.env.MONGO_URI)
-    .then(() => console.log('Connected to MongoDB'))
-    .catch(err => console.error('Failed to connect to MongoDB', err));
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

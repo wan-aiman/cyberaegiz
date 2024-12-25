@@ -382,13 +382,14 @@ nav {
 }
 
 .info-block.light-bg {
-    background-color: #F1F3F5;
+    background-color: #e9e8e8;
 }
 
 .info-block h2 {
     font-size: 28px;
     color: #333;
     margin-bottom: 15px;
+    text-align: left;
 }
 
 .info-block .highlight {
@@ -400,6 +401,11 @@ nav {
 .info-block ul {
     font-size: 16px;
     color: #555;
+    text-align: left;
+}
+
+.info-block p {
+    margin-bottom: 15px;
 }
 
 .info-block ul {
@@ -433,4 +439,28 @@ nav {
     .text-content, .hero-image img {
         max-width: 100%;
     }
+}
+
+.hero-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    color: #000;
+}
+
+.hero-content h1 span {
+    color: #00FF08;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: #333;
 }

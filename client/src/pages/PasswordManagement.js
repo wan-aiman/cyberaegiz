@@ -88,12 +88,11 @@ function PasswordManagement() {
 
   return (
     <main className="">
-      <section className="hero">
+      
         <div className="hero-content">
           <h1>Welcome to <span>CyberAegiz</span></h1>
           <p>Your security is our priority. Generate and check the strength of your passwords here.</p>
         </div>
-      </section>
 
       <section className="password-management">
         <h2>Password <span>Management</span></h2>

@@ -1,6 +1,7 @@
 // backend/utils/passwordUtils.js
+const crypto = require('crypto');
 
-// Function to generate a random password
+// Function to generate a secure random password
 function generatePassword(length = 12, includeSymbols = true, includeNumbers = true, includeLowercase = true, includeUppercase = true, avoidAmbiguous = false, avoidDuplicates = false) {
   const lowercase = 'abcdefghijklmnopqrstuvwxyz';
   const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -19,17 +20,22 @@ function generatePassword(length = 12, includeSymbols = true, includeNumbers = t
     charset = charset.split('').filter(char => !ambiguousChars.includes(char)).join('');
   }
 
+  const charsetArray = charset.split('');
   let password = '';
   let lastChar = '';
+
+  // Generate secure random password
   for (let i = 0; i < length; i++) {
-    let newChar = charset[Math.floor(Math.random() * charset.length)];
-    
+    const randomBytes = crypto.randomBytes(1); // Secure random byte
+    const randomIndex = randomBytes[0] % charsetArray.length; // Map to charset length
+    const newChar = charsetArray[randomIndex];
+
     // Avoid consecutive duplicates
     if (avoidDuplicates && newChar === lastChar) {
       i--; // Retry if duplicate
       continue;
     }
-    
+
     password += newChar;
     lastChar = newChar;
   }
