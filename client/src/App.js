@@ -31,7 +31,7 @@ function App() {
                                     <Link to="/encryption-decryption">Encryption & Decryption</Link>
                                 </div>
                             </li>
-                            <li><Link to="/education-hub">Education Hub</Link></li>
+                            <li><Link to="/education-hub">Security Awareness Training</Link></li>
                             <div className="login">
                                 <Link to="/" className="login-button">Login</Link>
                             </div>
