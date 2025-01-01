@@ -84,10 +84,12 @@
 }
 
 .module-card img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  margin-bottom: 15px;
+  width: 200px; /* Set the desired width */
+  height: 150px; /* Set the desired height */
+  object-fit: cover; /* Ensures the image scales properly */
+  border-radius: 8px; /* Optional: Add rounded corners */
+  display: block; /* Ensures proper alignment */
+  margin: 0 auto; /* Centers the image within the card */
 }
 
 .module-card h3 {

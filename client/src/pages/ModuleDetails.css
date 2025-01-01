@@ -11,7 +11,7 @@
   line-height: 1.8;
 }
 
-/* Title Section */
+/* Title Section - Centered */
 .module-details h1 {
   font-size: 2.75rem;
   color: #01ED07;
@@ -34,6 +34,7 @@
   margin: 0;
   font-size: 1.125rem;
   font-weight: 500;
+  text-align: left;
 }
 
 .module-info p span {
@@ -41,93 +42,47 @@
   color: #01ED07;
 }
 
-/* Content Section */
-.module-content {
-  margin-top: 40px;
+/* Flashcard Container */
+.flashcard-container {
+  text-align: left;
+  margin-top: 20px;
 }
 
-.module-content h2 {
-  font-size: 2rem;
-  color: #01ED07;
-  margin-bottom: 20px;
-  border-bottom: 2px solid #e0e0e0;
-  padding-bottom: 10px;
-}
-
-/* Collapsible Topic Card */
-.topic-card {
+/* Flashcard Styles */
+.flashcard {
   background: #f9f9f9;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  margin-bottom: 20px;
-  overflow: hidden;
-}
-
-.topic-card-header {
-  background: #01ED07;
-  color: #ffffff;
-  padding: 15px 20px;
-  cursor: pointer;
-  font-size: 1.25rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.topic-card-header:hover {
-  background: #00d906;
-}
-
-.topic-card-body {
   padding: 20px;
-  display: none;
-  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.flashcard-front h2 {
+  font-size: 1.5rem;
+  color: #01ED07;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+/* Specific Center Alignment for Phishing Awareness */
+.centered-title h2 {
+  text-align: center;
+}
+
+/* Flashcard Back */
+.flashcard-back {
+  padding: 15px;
+  font-size: 1rem;
   color: #555;
 }
 
-.topic-card-body p {
-  font-size: 1rem;
-  margin-bottom: 10px;
-}
-
-.topic-card-body ul {
-  padding-left: 20px;
+.flashcard-back ul {
   margin-top: 10px;
+  padding-left: 20px;
 }
 
-.topic-card-body ul li {
-  font-size: 1rem;
+.flashcard-back ul li {
   margin-bottom: 8px;
-}
-
-/* Icon for Expand/Collapse */
-.topic-card-header .icon {
-  font-size: 1.5rem;
-  transition: transform 0.3s ease;
-}
-
-.topic-card-header.active .icon {
-  transform: rotate(180deg);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .module-details {
-    padding: 20px;
-  }
-
-  .module-info {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .module-details h1 {
-    font-size: 2rem;
-  }
-
-  .module-content h2 {
-    font-size: 1.5rem;
-  }
 }
 
 .navigation {
@@ -136,6 +91,7 @@
   justify-content: space-between;
   width: 300px; /* Increased width for better spacing */
   margin: 20px auto;
+  text-align: left; /* Align navigation content to the left */
 }
 
 .navigation button {
@@ -169,4 +125,5 @@
   font-size: 1.25rem;
   color: #555;
   font-weight: bold;
+  text-align: left; /* Align text within the span to the left */
 }

@@ -74,7 +74,7 @@ const EducationHub = () => {
         {filteredModules.length > 0 ? (
           filteredModules.map((module) => (
             <div className="module-card" key={module._id}>
-              <img src={module.image || 'PasswordHacker.png'} alt={module.title} />
+              <img src={module.image} alt={module.title} />
               <h3>{module.title}</h3>
               <p>{module.description}</p>
               <button className="learn-more-btn" onClick={() => navigate(`/module/${module._id}`)}>
