@@ -8,6 +8,10 @@ const path = require('path');
 const axios = require('axios');
 const fs = require('fs');
 const crypto = require('crypto'); // Node.js crypto for encryption/decryption
+const FormData = require('form-data');
+const rateLimit = require('express-rate-limit'); //rate limiter
+const helmet = require('helmet');
+
 
 const passwordRoutes = require('./routes/password'); // Import password route
 const User = require('./models/User');
@@ -27,13 +31,14 @@ app.use(cors());
 // Middleware
 app.use(cors()); // Enable CORS
 app.use(express.json()); // Parse incoming JSON requests
+// Apply Helmet middleware to enhance security
+app.use(helmet()); // Default Helmet settings
 
 // MongoDB Connection
 const connectDB = async () => {
     try {
         await mongoose.connect(process.env.MONGO_URI, {
             useNewUrlParser: true,
-            useUnifiedTopology: true,
         });
         console.log('MongoDB connected successfully');
     } catch (error) {
@@ -58,12 +63,141 @@ app.use('/api/password', passwordRoutes);
 app.use('/api/education-hub', educationHubRoutes);
 app.use('/api/education-hub/assessment', assessmentRoutes);
 
-const upload = multer({ dest: path.join(__dirname, 'uploads/') });
 const PORT = process.env.PORT || 5001;
 const ENCRYPTION_ALGORITHM = 'aes-256-cbc';
 
+//file upload security
+// Configure Multer storage
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, path.join(__dirname, 'uploads/')); // Save files to the 'uploads' folder
+    },
+    filename: (req, file, cb) => {
+        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+        cb(null, file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname));
+    }
+});
+
+// File filter function to validate file types
+const fileFilter = async (req, file, cb) => {
+    const allowedTypes = [
+        'application/pdf',
+        'application/zip',
+        'application/x-rar-compressed',
+        'application/vnd.microsoft.portable-executable', // .exe files
+        'application/x-msdownload', // Executable files
+        'application/octet-stream', // Generic binary files
+        'image/jpeg', 'image/png', 'image/gif',
+        'text/plain', 'text/html',
+        'application/vnd.openxmlformats-officedocument.wordprocessingml.document', // .docx
+        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', // .xlsx
+        'application/vnd.openxmlformats-officedocument.presentationml.presentation', // .pptx
+        'application/x-dosexec', // Windows executables
+    ];
+
+    if (allowedTypes.includes(file.mimetype) || file.originalname.toLowerCase().endsWith('.exe')) {
+        cb(null, true);
+    } else {
+        cb(new Error('Invalid file type.'));
+    }
+};
+
+// Multer middleware
+const upload = multer({
+    storage: storage,
+    limits: { fileSize: 50 * 1024 * 1024 }, // 10MB limit
+    fileFilter: fileFilter,
+});
+
+// File upload route with error handling
+app.post('/upload', (req, res) => {
+    upload(req, res, (err) => {
+        if (err) {
+            if (err instanceof multer.MulterError) {
+                return res.status(400).json({ error: `Multer error: ${err.message}` });
+            } else if (err) {
+                return res.status(400).json({ error: err.message });
+            }
+        }
+
+        if (!req.file) {
+            return res.status(400).json({ error: 'No file uploaded.' });
+        }
+
+        res.status(200).json({ message: 'File uploaded successfully!' });
+    });
+
+    fetch('/upload', {
+        method: 'POST',
+        body: formData, // Your FormData object
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                alert(`Error: ${data.error}`); // Show error to the user
+            } else {
+                alert('File uploaded successfully!');
+            }
+        })
+        .catch(error => console.error('Error:', error));
+});
+
+// rate limiter
+const encryptDecryptLimiter = rateLimit({
+    windowMs: 1 * 60 * 1000, // 1 minute
+    max: 5, // 5 requests per minute
+    message: 'Too many encryption/decryption requests, please try again later.',
+});
+
+const scanFileLimiter = rateLimit({
+    windowMs: 1 * 60 * 1000, // 1 minute
+    max: 20, // 20 requests per minute
+    message: 'Too many scan requests, please try again later.',
+});
+
+//web security - CSP, Hide X-Powered-By Header, prevent clickjacking
+
+// Hide X-Powered-By Header
+// This prevents attackers from knowing the server is running Express.js
+app.use(helmet.hidePoweredBy());
+
+// Enforce HTTPS (HSTS)
+// Ensures all connections are made over HTTPS (use only when deployed with HTTPS)
+app.use(
+    helmet.hsts({
+        maxAge: 31536000, // 1 year in seconds
+        includeSubDomains: true, // Enforce HTTPS for all subdomains
+    })
+);
+
+// Content Security Policy (CSP)
+// Restrict the sources from which the app can load resources
+app.use(
+    helmet.contentSecurityPolicy({
+        useDefaults: true, // Use Helmet's default policies as a base
+        directives: {
+            "default-src": ["'self'"], // Allow resources only from the same origin
+            "script-src": ["'self'", "trusted-cdn.com"], // Allow scripts only from your domain and trusted CDNs
+            "style-src": ["'self'", "'unsafe-inline'"], // Allow styles from your domain and inline styles if needed
+        },
+    })
+);
+
+// Prevent Clickjacking
+// Ensures your app cannot be embedded in an iframe to prevent clickjacking attacks
+app.use(helmet.frameguard({ action: 'deny' }));
+
+// Prevent MIME Sniffing
+// Protects against MIME-type confusion attacks by forcing browsers to follow the stated Content-Type
+app.use(helmet.noSniff());
+
+// Example route to test Helmet functionality
+app.get('/', (req, res) => {
+    res.send('Helmet is now securing this app! 🚀');
+});
+
 // Encryption endpoint
-app.post('/encrypt', upload.single('file'), (req, res) => {
+app.post('/encrypt', encryptDecryptLimiter, upload.single('file'), (req, res) => {
     if (!req.file || !req.body.password) {
         return res.status(400).send('File and password are required.');
     }
@@ -96,7 +230,7 @@ app.post('/encrypt', upload.single('file'), (req, res) => {
 });
 
 // Decryption endpoint
-app.post('/decrypt', upload.single('file'), (req, res) => {
+app.post('/decrypt', encryptDecryptLimiter, upload.single('file'), (req, res) => {
     if (!req.file || !req.body.password) {
         return res.status(400).send('File and password are required.');
     }
@@ -133,7 +267,7 @@ app.post('/decrypt', upload.single('file'), (req, res) => {
 });
 
 
-app.post('/scan-file', upload.single('file'), async (req, res) => {
+app.post('/scan-file', scanFileLimiter, upload.single('file'), async (req, res) => {
     if (!req.file) {
         return res.status(400).send('No file uploaded.');
     }
