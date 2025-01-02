@@ -4,6 +4,7 @@ const subtopicSchema = new mongoose.Schema({
   title: { type: String, required: true },
   details: { type: String, required: true },
   keyPoints: { type: [String], required: true }, // New field for bullet points
+  videoUrl: { type: String, required: false },
 });
 
 const moduleSchema = new mongoose.Schema({

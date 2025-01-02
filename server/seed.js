@@ -87,6 +87,7 @@ const seedData = async () => {
                     'Use email security tools that flag suspicious messages.',
                     'Report any phishing attempts to your IT department.',
                   ],
+                  videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
                 },
                 {
                   title: 'Malware Protection',
@@ -97,6 +98,7 @@ const seedData = async () => {
                     'Ensure the company’s operating systems and software are always up-to-date.',
                     'Educate employees about the risks of downloading unknown files.',
                   ],
+                  videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
                 },
                 {
                   title: 'Safe Browsing Practices',
@@ -107,6 +109,7 @@ const seedData = async () => {
                     'Regularly clear cookies and cached data to minimize tracking.',
                     'Disable pop-ups and avoid clicking on banner ads.',
                   ],
+                  videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
                 },
                 {
                   title: 'Strong Passwords',
@@ -117,6 +120,7 @@ const seedData = async () => {
                     'Use a password manager to generate and store complex passwords securely.',
                     'Enable multi-factor authentication (MFA) wherever possible.',
                   ],
+                  videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
                 },
               ],
               category: categoryMap['Cybersecurity Essentials'],
@@ -136,6 +140,7 @@ const seedData = async () => {
                       'Use application-layer firewalls for deeper traffic inspection.',
                       'Regularly update firewall rules to address new threats.',
                     ],
+                    videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
                   },
                   {
                     title: 'Wi-Fi Security',
@@ -146,6 +151,7 @@ const seedData = async () => {
                       'Regularly monitor and update firmware to patch security vulnerabilities.',
                       'Set up guest networks for visitors to isolate internal systems.',
                     ],
+                    videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
                   },
                   {
                     title: 'Virtual Private Networks (VPN)',
@@ -156,6 +162,7 @@ const seedData = async () => {
                       'Enable split-tunneling to balance security and performance.',
                       'Choose a VPN provider that ensures a no-logs policy.',
                     ],
+                    videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
                   },
                   {
                     title: 'Intrusion Detection Systems (IDS)',
@@ -166,6 +173,7 @@ const seedData = async () => {
                       'Deploy network-based IDS (NIDS) to scan entire network traffic.',
                       'Integrate IDS with firewalls for automated threat responses.',
                     ],
+                    videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
                   },
                 ],
                 category: categoryMap['Cybersecurity Essentials'],
@@ -185,6 +193,7 @@ const seedData = async () => {
                       'Audit system logs regularly for unauthorized access attempts.',
                       'Employ behavioral analysis tools to identify anomalies.',
                     ],
+                    videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
                   },
                   {
                     title: 'Mitigating Damage',
@@ -195,6 +204,7 @@ const seedData = async () => {
                       'Activate backup systems to maintain business continuity.',
                       'Coordinate with cybersecurity experts to assess and neutralize threats.',
                     ],
+                    videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
                   },
                   {
                     title: 'Notifying Stakeholders',
@@ -205,6 +215,7 @@ const seedData = async () => {
                       'Ensure that all communications are clear, accurate, and non-alarming.',
                       'Provide stakeholders with actionable steps to minimize impact.',
                     ],
+                    videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
                   },
                   {
                     title: 'Post-Incident Analysis',
@@ -215,6 +226,7 @@ const seedData = async () => {
                       'Document the incident and share lessons learned with the team.',
                       'Schedule follow-up audits to ensure preventive measures are effective.',
                     ],
+                    videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
                   },
                 ],
                 category: categoryMap['Cybersecurity Essentials'],
@@ -236,6 +248,7 @@ const seedData = async () => {
                   'Encrypt sensitive files and communications where possible.',
                   'Regularly monitor your credit reports and financial accounts for signs of identity theft.',
                 ],
+                videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
               },
               {
                 title: 'Secure Social Media Use',
@@ -246,6 +259,7 @@ const seedData = async () => {
                   'Be cautious about accepting friend requests from unknown individuals.',
                   'Review third-party app permissions and revoke unnecessary access.',
                 ],
+                videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
               },
               {
                 title: 'Avoiding Online Tracking',
@@ -256,6 +270,7 @@ const seedData = async () => {
                   'Enable Do Not Track settings in your browser to minimize tracking.',
                   'Consider using privacy-focused search engines like DuckDuckGo.',
                 ],
+                videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
               },
               {
                 title: 'Using Secure Browsers',
@@ -266,6 +281,7 @@ const seedData = async () => {
                   'Disable third-party cookies to reduce tracking by advertisers.',
                   'Keep your browser updated to the latest version for maximum security.',
                 ],
+                videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
               },
             ],
             category: categoryMap['Online Safety and Privacy'],
@@ -285,6 +301,7 @@ const seedData = async () => {
                   'Restrict who can send you friend requests or message you directly.',
                   'Limit the visibility of your contact details and personal information.',
                 ],
+                videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
               },
               {
                 title: 'Recognizing Scams',
@@ -295,6 +312,7 @@ const seedData = async () => {
                   'Be cautious of offers or messages that sound too good to be true.',
                   'Report and block suspicious accounts to the platform’s support team.',
                 ],
+                videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
               },
               {
                 title: 'Strong Authentication',
@@ -305,6 +323,7 @@ const seedData = async () => {
                   'Secure backup codes for MFA in a safe location.',
                   'Avoid logging in to social accounts on shared or public devices.',
                 ],
+                videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
               },
               {
                 title: 'Reviewing Permissions',
@@ -315,6 +334,7 @@ const seedData = async () => {
                   'Limit permissions to only those necessary for the app’s functionality.',
                   'Be cautious when granting access to new apps, especially those with vague privacy policies.',
                 ],
+                videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
               },
             ],
             category: categoryMap['Online Safety and Privacy'],
@@ -334,6 +354,7 @@ const seedData = async () => {
                       'Encrypt sensitive files and communications where possible.',
                       'Regularly monitor your credit reports and financial accounts for signs of identity theft.',
                     ],
+                    videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
                   },
                   {
                     title: 'Secure Social Media Use',
@@ -344,6 +365,7 @@ const seedData = async () => {
                       'Be cautious about accepting friend requests from unknown individuals.',
                       'Review third-party app permissions and revoke unnecessary access.',
                     ],
+                    videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
                   },
                   {
                     title: 'Avoiding Online Tracking',
@@ -354,6 +376,7 @@ const seedData = async () => {
                       'Enable Do Not Track settings in your browser to minimize tracking.',
                       'Consider using privacy-focused search engines like DuckDuckGo.',
                     ],
+                    videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
                   },
                   {
                     title: 'Using Secure Browsers',
@@ -364,6 +387,7 @@ const seedData = async () => {
                       'Disable third-party cookies to reduce tracking by advertisers.',
                       'Keep your browser updated to the latest version for maximum security.',
                     ],
+                    videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
                   },
                 ],
                 category: categoryMap['Online Safety and Privacy'],
@@ -383,6 +407,7 @@ const seedData = async () => {
                       'Restrict who can send you friend requests or message you directly.',
                       'Limit the visibility of your contact details and personal information.',
                     ],
+                    videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
                   },
                   {
                     title: 'Recognizing Scams',
@@ -393,6 +418,7 @@ const seedData = async () => {
                       'Be cautious of offers or messages that sound too good to be true.',
                       'Report and block suspicious accounts to the platform’s support team.',
                     ],
+                    videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
                   },
                   {
                     title: 'Strong Authentication',
@@ -403,6 +429,7 @@ const seedData = async () => {
                       'Secure backup codes for MFA in a safe location.',
                       'Avoid logging in to social accounts on shared or public devices.',
                     ],
+                    videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
                   },
                   {
                     title: 'Reviewing Permissions',
@@ -413,6 +440,7 @@ const seedData = async () => {
                       'Limit permissions to only those necessary for the app’s functionality.',
                       'Be cautious when granting access to new apps, especially those with vague privacy policies.',
                     ],
+                    videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
                   },
                 ],
                 category: categoryMap['Online Safety and Privacy'],
@@ -432,6 +460,7 @@ const seedData = async () => {
                       'Hardware Tokens: Employ physical devices like YubiKeys to verify identity.',
                       'Improved Security: Eliminates vulnerabilities associated with weak or reused passwords.',
                     ],
+                    videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
                   },
                   {
                     title: 'Password Reuse Risks',
@@ -442,6 +471,7 @@ const seedData = async () => {
                       'Avoid using variations of the same password, such as adding numbers or symbols.',
                       'Monitor for data breach notifications and update affected passwords immediately.',
                     ],
+                    videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
                   },
                   {
                     title: 'Recovery Codes',
@@ -452,6 +482,7 @@ const seedData = async () => {
                       'Regularly update recovery codes if they are compromised or as part of routine maintenance.',
                       'Test recovery codes periodically to ensure they work as intended.',
                     ],
+                    videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
                   },
                   {
                     title: 'Session Management',
@@ -462,6 +493,7 @@ const seedData = async () => {
                       'Avoid saving login credentials on devices or browsers shared with others.',
                       'Regularly review active sessions and terminate any unauthorized or suspicious activity.',
                     ],
+                    videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
                   },
                 ],
                 category: categoryMap['Authentication Control'],
@@ -481,6 +513,7 @@ const seedData = async () => {
                       'Monitor for unrecognized transactions or activity within accounts.',
                       'Enable alerts for suspicious login attempts to stay informed.',
                     ],
+                    videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
                   },
                   {
                     title: 'Resetting Passwords',
@@ -491,6 +524,7 @@ const seedData = async () => {
                       'Avoid reusing compromised passwords for any accounts.',
                       'Enable multi-factor authentication (MFA) immediately after resetting passwords.',
                     ],
+                    videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
                   },
                   {
                     title: 'Notifying Services',
@@ -501,6 +535,7 @@ const seedData = async () => {
                       'Request temporary account suspension if necessary to prevent further misuse.',
                       'Follow the provider’s recommended steps for securing your account.',
                     ],
+                    videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
                   },
                   {
                     title: 'Preventing Future Attacks',
@@ -511,6 +546,7 @@ const seedData = async () => {
                       'Educate yourself about common attack vectors and best practices for online security.',
                       'Monitor your accounts for unusual activity and respond promptly to alerts.',
                     ],
+                    videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
                   },
                 ],
                 category: categoryMap['Authentication Control'],
@@ -532,6 +568,7 @@ const seedData = async () => {
                   'Unauthorized Changes: Monitor for changes to settings or software installations you did not initiate.',
                   'Preventive Measures: Regularly update antivirus software and educate employees about safe downloading practices.',
                 ],
+                videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
               },
               {
                 title: 'Phishing Emails',
@@ -542,6 +579,7 @@ const seedData = async () => {
                   'Avoid Links: Hover over links to check their destination before clicking.',
                   'Use Email Security Tools: Enable spam filters and phishing detection mechanisms.',
                 ],
+                videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
               },
               {
                 title: 'Social Engineering Tactics',
@@ -552,6 +590,7 @@ const seedData = async () => {
                   'Baiting: Avoid inserting unknown USB drives or downloading "free" software.',
                   'Verify Requests: Always confirm requests for sensitive information through independent channels.',
                 ],
+                videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
               },
               {
                 title: 'Unusual Network Activity',
@@ -562,6 +601,7 @@ const seedData = async () => {
                   'Repeated Login Attempts: Look for multiple failed logins that may indicate brute force attacks.',
                   'Use Network Monitoring Tools: Leverage tools to analyze and visualize network traffic patterns.',
                 ],
+                videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
               },
             ],
             category: categoryMap['Threat Recognition & Response'],
@@ -581,6 +621,7 @@ const seedData = async () => {
                   'Block Malicious IPs: Use firewalls to block IP addresses involved in the attack.',
                   'Minimize Access: Limit system access to essential personnel during the response.',
                 ],
+                videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
               },
               {
                 title: 'Gathering Evidence',
@@ -591,6 +632,7 @@ const seedData = async () => {
                   'Preserve Files: Store copies of malicious files and emails securely.',
                   'Document Actions: Maintain a record of all actions taken during the response.',
                 ],
+                videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
               },
               {
                 title: 'Notifying IT Teams',
@@ -601,6 +643,7 @@ const seedData = async () => {
                   'Follow Protocols: Adhere to your organization’s incident response plan.',
                   'Coordinate Efforts: Work closely with IT teams to contain and resolve the issue.',
                 ],
+                videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
               },
               {
                 title: 'Follow-Up Actions',
@@ -611,6 +654,7 @@ const seedData = async () => {
                   'Monitor Systems: Increase vigilance for potential follow-up attacks.',
                   'Communicate: Share findings with stakeholders and provide clear next steps.',
                 ],
+                videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
               },
             ],
             category: categoryMap['Threat Recognition & Response'],
@@ -631,6 +675,7 @@ const seedData = async () => {
                   'Highlight Impacts: Describe potential or actual damage, such as data loss or operational disruptions.',
                   'Attach Evidence: Provide relevant files, logs, or screenshots to support the report.',
                 ],
+                videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
               },
               {
                 title: 'Who to Notify',
@@ -641,6 +686,7 @@ const seedData = async () => {
                   'Legal Authorities: Contact law enforcement or regulatory bodies for severe incidents or compliance breaches.',
                   'External Partners: Engage third-party cybersecurity experts if additional expertise is required.',
                 ],
+                videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
               },
               {
                 title: 'Maintaining Confidentiality',
@@ -651,6 +697,7 @@ const seedData = async () => {
                   'Anonymize Data: Remove identifiable information unless necessary for investigation.',
                   'Comply with Policies: Follow organizational guidelines for handling sensitive data.',
                 ],
+                videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
               },
               {
                 title: 'Post-Report Procedures',
@@ -661,6 +708,7 @@ const seedData = async () => {
                   'Update Security Measures: Enhance policies, tools, and training based on lessons learned.',
                   'Communicate Findings: Share incident outcomes and improvements with relevant teams.',
                 ],
+                videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
               },
             ],
             category: categoryMap['Threat Recognition & Response'],
@@ -680,6 +728,7 @@ const seedData = async () => {
                   'Confidential Data: Includes proprietary information, like trade secrets or client records.',
                   'Highly Sensitive Data: Encompasses financial records, medical data, or personal identifiable information (PII).',
                 ],
+                videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
               },
               {
                 title: 'Access Controls',
@@ -690,6 +739,7 @@ const seedData = async () => {
                   'Two-Factor Authentication: Add an extra layer of security for accessing critical systems.',
                   'Access Logs: Regularly review logs to monitor data access and detect anomalies.',
                 ],
+                videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
               },
               {
                 title: 'Data Encryption',
@@ -700,6 +750,7 @@ const seedData = async () => {
                   'Encrypt Data in Transit: Protect information exchanged over networks using SSL/TLS protocols.',
                   'Key Management: Safeguard encryption keys and rotate them periodically.',
                 ],
+                videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
               },
               {
                 title: 'Backup Strategies',
@@ -710,6 +761,7 @@ const seedData = async () => {
                   'Testing: Periodically test backups to ensure data can be restored successfully.',
                   'Disaster Recovery Plan: Develop a clear plan for restoring data during emergencies.',
                 ],
+                videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
               },
             ],
             category: categoryMap['Data Protection'],
@@ -730,6 +782,7 @@ const seedData = async () => {
                       'Regularly update firmware on devices like routers and servers.',
                       'Monitor for end-of-life software and migrate to supported versions.',
                     ],
+                    videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
                   },
                   {
                     title: 'Strong Access Policies',
@@ -740,6 +793,7 @@ const seedData = async () => {
                       'Regularly review and update access permissions as roles change.',
                       'Revoke access immediately when employees leave the organization.',
                     ],
+                    videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
                   },
                   {
                     title: 'Monitoring & Auditing',
@@ -750,6 +804,7 @@ const seedData = async () => {
                       'Use AI-driven monitoring tools for real-time threat detection.',
                       'Establish procedures for investigating and responding to alerts.',
                     ],
+                    videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
                   },
                   {
                     title: 'Third-Party Risks',
@@ -760,6 +815,7 @@ const seedData = async () => {
                       'Limit the data shared with external parties to the minimum required.',
                       'Monitor third-party access to your systems and revoke when unnecessary.',
                     ],
+                    videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
                   },
                 ],
                 category: categoryMap['Data Protection'],
@@ -779,6 +835,7 @@ const seedData = async () => {
                       'Conduct Data Protection Impact Assessments (DPIAs) for high-risk processing activities.',
                       'Implement mechanisms for obtaining user consent and handling data requests.',
                     ],
+                    videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
                   },
                   {
                     title: 'Data Minimization',
@@ -789,6 +846,7 @@ const seedData = async () => {
                       'Implement automated tools to anonymize or pseudonymize data.',
                       'Train staff on the importance of minimizing data collection.',
                     ],
+                    videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
                   },
                   {
                     title: 'User Consent',
@@ -799,6 +857,7 @@ const seedData = async () => {
                       'Track and record consent for auditing purposes.',
                       'Allow users to revoke consent easily through account settings.',
                     ],
+                    videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
                   },
                   {
                     title: 'Responding to Requests',
@@ -809,6 +868,7 @@ const seedData = async () => {
                       'Provide requested data in a portable and readable format.',
                       'Respond to requests within legally mandated timeframes (e.g., 30 days under GDPR).',
                     ],
+                    videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
                   },
                 ],
                 category: categoryMap['Data Protection'],

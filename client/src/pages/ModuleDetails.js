@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import './ModuleDetails.css';
+import { useNavigate } from 'react-router-dom';
 
 const ModuleDetails = () => {
   const { moduleId } = useParams();
@@ -9,12 +10,18 @@ const ModuleDetails = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
+  const [suggestions, setSuggestions] = useState([]);
+  const navigate = useNavigate();
+
 
   useEffect(() => {
-    const fetchModule = async () => {
+    const fetchModuleDetails = async () => {
       try {
         const response = await axios.get(`http://localhost:5001/api/education-hub/modules/${moduleId}`);
         setModule(response.data);
+  
+        const allModulesResponse = await axios.get('http://localhost:5001/api/education-hub/modules');
+        setSuggestions(allModulesResponse.data.filter(mod => mod._id !== moduleId)); // Exclude current module
         setLoading(false);
       } catch (err) {
         console.error('Error fetching module details:', err);
@@ -22,8 +29,8 @@ const ModuleDetails = () => {
         setLoading(false);
       }
     };
-
-    fetchModule();
+  
+    fetchModuleDetails();
   }, [moduleId]);
 
   const nextCard = () => {
@@ -65,6 +72,18 @@ const ModuleDetails = () => {
                   ))}
                 </ul>
               )}
+               {currentCard.videoUrl && (
+    <div className="video-container">
+      <iframe
+        width="100%"
+        height="315"
+        src={currentCard.videoUrl}
+        title="Video Tutorial"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      ></iframe>
+    </div>
+  )}
             </div>
           </div>
         </div>
@@ -80,6 +99,26 @@ const ModuleDetails = () => {
           </button>
         </div>
       </div>
+      <div className="suggestions-container">
+  <h2>What to Learn Next</h2>
+  <div className="slider">
+    {suggestions.map((suggestion) => (
+      <div
+        className="suggestion-card"
+        key={suggestion._id}
+        onClick={() => {
+          navigate(`/module/${suggestion._id}`);
+          window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top smoothly
+        }}
+        style={{ cursor: 'pointer' }}
+      >
+        <img src={suggestion.image} alt={suggestion.title} />
+        <h3>{suggestion.title}</h3>
+      </div>
+    ))}
+  </div>
+</div>
+
     </div>
   );
 };
