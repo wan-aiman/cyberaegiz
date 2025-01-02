@@ -107,8 +107,9 @@ const ModuleDetails = () => {
         className="suggestion-card"
         key={suggestion._id}
         onClick={() => {
+          setCurrentCardIndex(0); // Reset to the first card
           navigate(`/module/${suggestion._id}`);
-          window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top smoothly
+          window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to the top
         }}
         style={{ cursor: 'pointer' }}
       >

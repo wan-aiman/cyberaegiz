@@ -49,27 +49,59 @@ const seedData = async () => {
         });
 
         // Seed quizzes
-        const quizzes = [
-            {
-                title: 'Basic Cybersecurity Quiz',
-                category: categoryMap['Cybersecurity Essentials'], // Reference the correct category
-                questions: [
-                    {
-                        question: 'What is phishing?',
-                        options: ['A type of sport', 'An online scam', 'A password'],
-                        correctAnswer: 'An online scam',
-                    },
-                    {
-                        question: 'What does MFA stand for?',
-                        options: ['Multi-Factor Authentication', 'Malware File Analysis', 'Main Firewall Access'],
-                        correctAnswer: 'Multi-Factor Authentication',
-                    },
-                ],
-            },
-        ];
-
-        await Quiz.insertMany(quizzes);
-        console.log('Quizzes seeded.');
+        
+        const seedQuizzes = async () => {
+            const modules = await Module.find(); // Fetch all modules
+            const moduleMap = {};
+            modules.forEach((mod) => {
+                moduleMap[mod.title] = mod._id; // Map modules by title
+            });
+        
+            const quizzes = [
+                {
+                    title: 'Cybersecurity Basics Quiz',
+                    module: moduleMap['Cybersecurity Basics'], // Link to a specific module
+                    questions: [
+                        {
+                            question: 'What is phishing?',
+                            options: ['A type of sport', 'An online scam', 'A password'],
+                            correctAnswer: 'An online scam',
+                        },
+                        {
+                            question: 'What does MFA stand for?',
+                            options: ['Multi-Factor Authentication', 'Malware File Analysis', 'Main Firewall Access'],
+                            correctAnswer: 'Multi-Factor Authentication',
+                        },
+                    ],
+                },
+                {
+                    title: 'Authentication Control Quiz',
+                    module: moduleMap['Understanding MFA'], // Link to another module
+                    questions: [
+                        {
+                            question: 'What is the primary benefit of MFA?',
+                            options: [
+                                'Faster login times',
+                                'Increased security',
+                                'Ease of password recovery',
+                            ],
+                            correctAnswer: 'Increased security',
+                        },
+                        {
+                            question: 'Which method is NOT considered MFA?',
+                            options: ['Password and OTP', 'Biometric and PIN', 'Username and Password'],
+                            correctAnswer: 'Username and Password',
+                        },
+                    ],
+                },
+            ];
+        
+            await Quiz.insertMany(quizzes);
+            console.log('Quizzes seeded successfully.');
+        };
+        
+        module.exports = seedQuizzes;
+        
 
         // Seed modules
         const modules = [
@@ -287,112 +319,60 @@ const seedData = async () => {
             category: categoryMap['Online Safety and Privacy'],
             image: 'https://images.pexels.com/photos/211151/pexels-photo-211151.jpeg?auto=compress&cs=tinysrgb&w=600',
           },
-          {
-            title: 'Safe Social Media Practices',
-            description: 'Understand how to navigate social media platforms safely, protect your accounts, and minimize exposure to scams and risks.',
-            estimatedTime: 60,
-            content: [
-              {
-                title: 'Privacy Settings',
-                details: 'Adjusting privacy settings on social media platforms ensures that you control who can view your posts, profile information, and activities. This is critical for protecting personal information from unwanted attention.',
-                keyPoints: [
-                  'Set profiles to private and limit visibility to friends or approved connections.',
-                  'Review and update privacy settings regularly to align with platform updates.',
-                  'Restrict who can send you friend requests or message you directly.',
-                  'Limit the visibility of your contact details and personal information.',
-                ],
-                videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
-              },
-              {
-                title: 'Recognizing Scams',
-                details: 'Social media scams often involve fake profiles, phishing attempts, and malicious links. Recognizing these threats is essential to avoid falling victim to fraud or identity theft.',
-                keyPoints: [
-                  'Verify the authenticity of profiles before interacting or sharing information.',
-                  'Avoid clicking on unsolicited links in messages or posts.',
-                  'Be cautious of offers or messages that sound too good to be true.',
-                  'Report and block suspicious accounts to the platform’s support team.',
-                ],
-                videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
-              },
-              {
-                title: 'Strong Authentication',
-                details: 'Using strong authentication methods, such as multi-factor authentication (MFA), can significantly enhance the security of your social media accounts, preventing unauthorized access.',
-                keyPoints: [
-                  'Enable MFA on all social media accounts for added protection.',
-                  'Use unique and complex passwords for each account.',
-                  'Secure backup codes for MFA in a safe location.',
-                  'Avoid logging in to social accounts on shared or public devices.',
-                ],
-                videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
-              },
-              {
-                title: 'Reviewing Permissions',
-                details: 'Third-party apps often request access to your social media accounts for functionality, but excessive permissions can compromise your privacy. Reviewing and managing these permissions is crucial.',
-                keyPoints: [
-                  'Regularly audit the list of connected apps on your social accounts.',
-                  'Revoke access for apps you no longer use or recognize.',
-                  'Limit permissions to only those necessary for the app’s functionality.',
-                  'Be cautious when granting access to new apps, especially those with vague privacy policies.',
-                ],
-                videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
-              },
-            ],
-            category: categoryMap['Online Safety and Privacy'],
-            image: 'https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=600',
-          },          
             {
-                title: 'Online Privacy Strategies',
-                description: 'Learn how to safeguard your online presence by adopting effective privacy practices and minimizing digital footprints.',
+                title: 'Enhancing Digital Footprint Awareness',
+                description: 'Understand the impact of your digital footprint and learn strategies to minimize risks associated with online activities.',
                 estimatedTime: 60,
                 content: [
-                  {
-                    title: 'Protecting Personal Data',
-                    details: 'Personal data, such as your name, address, and financial information, is a prime target for cybercriminals. Protecting this data ensures that your identity and finances remain secure while minimizing risks of fraud and breaches.',
-                    keyPoints: [
-                      'Avoid sharing sensitive personal information on unsecured platforms.',
-                      'Review privacy policies before providing personal data to websites.',
-                      'Encrypt sensitive files and communications where possible.',
-                      'Regularly monitor your credit reports and financial accounts for signs of identity theft.',
-                    ],
-                    videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
-                  },
-                  {
-                    title: 'Secure Social Media Use',
-                    details: 'Social media platforms are common targets for hackers due to the wealth of personal information they contain. By managing privacy settings and controlling what you share, you can minimize exposure to risks.',
-                    keyPoints: [
-                      'Set your social media profiles to private to control who sees your content.',
-                      'Avoid posting details about your location, vacations, or daily routines.',
-                      'Be cautious about accepting friend requests from unknown individuals.',
-                      'Review third-party app permissions and revoke unnecessary access.',
-                    ],
-                    videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
-                  },
-                  {
-                    title: 'Avoiding Online Tracking',
-                    details: 'Online tracking tools like cookies and trackers collect user data for various purposes, including advertising and profiling. Limiting tracking can help maintain your privacy and prevent data misuse.',
-                    keyPoints: [
-                      'Use browser extensions like Ghostery or Privacy Badger to block trackers.',
-                      'Regularly clear cookies and browsing history from your web browser.',
-                      'Enable Do Not Track settings in your browser to minimize tracking.',
-                      'Consider using privacy-focused search engines like DuckDuckGo.',
-                    ],
-                    videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
-                  },
-                  {
-                    title: 'Using Secure Browsers',
-                    details: 'Secure browsers provide enhanced privacy features that protect you from online threats. These browsers are designed to limit tracking and provide a safer browsing experience.',
-                    keyPoints: [
-                      'Switch to browsers like Brave, Firefox, or Tor for better privacy.',
-                      'Enable HTTPS Everywhere to ensure secure connections to websites.',
-                      'Disable third-party cookies to reduce tracking by advertisers.',
-                      'Keep your browser updated to the latest version for maximum security.',
-                    ],
-                    videoUrl:'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
-                  },
+                    {
+                        title: 'What is a Digital Footprint?',
+                        details: 'A digital footprint is the trail of data you leave behind when using the internet. This includes anything from social media posts to online purchases. Understanding your footprint is crucial to managing privacy risks effectively.',
+                        keyPoints: [
+                            'Differentiate between active and passive digital footprints.',
+                            'Understand how data collection works on websites and apps.',
+                            'Learn the implications of oversharing personal information.',
+                            'Know how your digital footprint can affect your personal and professional life.',
+                        ],
+                        videoUrl: 'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
+                    },
+                    {
+                        title: 'Managing Privacy Settings',
+                        details: 'Adjusting privacy settings on platforms you use frequently can significantly reduce your exposure to unwanted data collection and cyber threats.',
+                        keyPoints: [
+                            'Regularly review and update privacy settings on social media platforms.',
+                            'Turn off location tracking on apps unless necessary.',
+                            'Limit who can view your online profiles and personal information.',
+                            'Use privacy-focused browsers and search engines for enhanced protection.',
+                        ],
+                        videoUrl: 'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
+                    },
+                    {
+                        title: 'Protecting Yourself from Data Exploitation',
+                        details: 'Data brokers and advertisers often exploit your online activities for targeted ads or profiling. Learn how to mitigate this through proactive measures.',
+                        keyPoints: [
+                            'Opt-out of data collection services where possible.',
+                            'Install browser extensions like uBlock Origin to block ads and trackers.',
+                            'Use temporary or disposable email addresses for non-essential sign-ups.',
+                            'Be cautious of apps requesting excessive permissions.',
+                        ],
+                        videoUrl: 'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
+                    },
+                    {
+                        title: 'Minimizing Your Digital Footprint',
+                        details: 'Reducing the size of your digital footprint lowers your risk of being targeted by cybercriminals and minimizes long-term data exposure.',
+                        keyPoints: [
+                            'Regularly delete old accounts you no longer use.',
+                            'Use secure platforms for sensitive communications and transactions.',
+                            'Clear browser history and cookies regularly to avoid unnecessary tracking.',
+                            'Think twice before sharing personal information online.',
+                        ],
+                        videoUrl: 'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
+                    },
                 ],
                 category: categoryMap['Online Safety and Privacy'],
-                image: 'https://images.pexels.com/photos/211151/pexels-photo-211151.jpeg?auto=compress&cs=tinysrgb&w=600',
-              },
+                image: 'https://img.freepik.com/free-photo/senior-man-receiving-positive-reactions-from-social-media_53876-105688.jpg?semt=ais_hybrid',
+            },
+                    
               {
                 title: 'Safe Social Media Practices',
                 description: 'Understand how to navigate social media platforms safely, protect your accounts, and minimize exposure to scams and risks.',
@@ -551,7 +531,60 @@ const seedData = async () => {
                 ],
                 category: categoryMap['Authentication Control'],
                 image: 'https://img.freepik.com/free-photo/recovery-backup-restoration-data-storage-security-concept_53876-133816.jpg?semt=ais_hybrid',
-              },              
+              }, 
+              {
+                title: 'Advanced MFA Strategies',
+                description: 'Explore advanced techniques and best practices to strengthen your accounts using multi-factor authentication (MFA).',
+                estimatedTime: 60,
+                content: [
+                    {
+                        title: 'Understanding Advanced MFA Methods',
+                        details: 'Multi-factor authentication (MFA) is a key component in modern cybersecurity strategies. Understanding advanced MFA methods enhances your ability to secure sensitive systems and prevent unauthorized access.',
+                        keyPoints: [
+                            'Leverage biometric authentication methods like facial recognition or fingerprints.',
+                            'Use hardware security keys, such as YubiKey, for an added layer of security.',
+                            'Combine traditional methods (e.g., passwords) with modern MFA for layered protection.',
+                            'Educate users on selecting the right MFA method for their needs.',
+                        ],
+                        videoUrl: 'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
+                    },
+                    {
+                        title: 'Securing MFA Backup Methods',
+                        details: 'Ensuring the security of MFA backup methods is crucial to preventing lockouts and unauthorized access. This involves safe handling of backup codes and alternative recovery methods.',
+                        keyPoints: [
+                            'Store backup codes in a secure and encrypted format.',
+                            'Avoid sharing recovery codes with anyone, even trusted individuals.',
+                            'Ensure that alternative recovery methods, like email recovery, are secure.',
+                            'Regularly update and test your backup methods to ensure their effectiveness.',
+                        ],
+                        videoUrl: 'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
+                    },
+                    {
+                        title: 'Combining MFA with Other Security Measures',
+                        details: 'While MFA is powerful, combining it with other security measures creates a comprehensive defense strategy. Learn how to integrate MFA into a broader security framework.',
+                        keyPoints: [
+                            'Implement MFA alongside firewalls, antivirus software, and intrusion detection systems.',
+                            'Use MFA in conjunction with strong password policies to enhance account security.',
+                            'Educate employees on spotting phishing attempts that bypass MFA.',
+                            'Regularly audit and test the effectiveness of your overall security strategy.',
+                        ],
+                        videoUrl: 'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
+                    },
+                    {
+                        title: 'Future of MFA: What to Expect',
+                        details: 'The future of MFA includes advancements like passwordless authentication and continuous authentication. Understanding these trends prepares you for the next wave of cybersecurity innovations.',
+                        keyPoints: [
+                            'Explore passwordless authentication methods using biometrics or email links.',
+                            'Understand continuous authentication systems that monitor user behavior.',
+                            'Stay updated on industry standards and trends in authentication technology.',
+                            'Prepare for integration of AI and machine learning into MFA systems.',
+                        ],
+                        videoUrl: 'https://www.youtube.com/embed/dUjNVzzqTiA?si=uSvt_LICmH3KLh_a',
+                    },
+                ],
+                category: categoryMap['Authentication Control'],
+                image: 'https://img.freepik.com/free-photo/finger-pressing-button-with-padlock_1134-121.jpg?semt=ais_hybrid',
+            },                         
 
           // Threat Recognition & Response
           {

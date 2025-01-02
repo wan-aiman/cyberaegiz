@@ -6,45 +6,110 @@ const Category = require('../models/Category');
 
 // Sample questions for the assessment with category IDs
 const questions = [
+    // Basic Questions
     {
-        question: 'What is phishing?',
-        options: ['A sport', 'A malicious attempt to steal information', 'A type of software'],
-        correctAnswer: 1,
-        category: 'Cybersecurity Essentials', // Will be replaced with category ID dynamically
+      question: '1. What is the primary goal of a firewall in a network?',
+      options: [
+        'To block all internet access',
+        'To filter and monitor incoming and outgoing traffic',
+        'To speed up network connections'
+      ],
+      correctAnswer: 1,
+      category: 'Cybersecurity Essentials', // Will be replaced with category ID dynamically
     },
     {
-        question: 'What does MFA stand for?',
-        options: ['Malware File Analysis', 'Multi-Factor Authentication', 'Main Firewall Access'],
-        correctAnswer: 1,
-        category: 'Authentication Control', // Will be replaced with category ID dynamically
+      question: '2. Which of the following is a key principle of multi-factor authentication (MFA)?',
+      options: [
+        'Using multiple passwords for one account',
+        'Requiring two or more verification factors, such as a password and a fingerprint',
+        'Granting access based on device model'
+      ],
+      correctAnswer: 1,
+      category: 'Authentication Control', // Will be replaced with category ID dynamically
     },
     {
-        question: 'Which of the following is the safest password?',
-        options: ['password123', 'yourname123', '@5Rt@9_FgL'],
-        correctAnswer: 2,
-        category: 'Online Safety and Privacy', // Will be replaced with category ID dynamically
+      question: '3. What is the most effective way to prevent unauthorized access to your Wi-Fi network?',
+      options: [
+        'Setting up a guest network',
+        'Using a strong password and WPA3 encryption',
+        'Turning off the router when not in use'
+      ],
+      correctAnswer: 1,
+      category: 'Online Safety and Privacy', // Will be replaced with category ID dynamically
     },
     {
-        question: 'What is a common sign of a cyberattack in progress?',
-        options: [
-            'A slow internet connection',
-            'Unauthorized access alerts',
-            'Battery draining quickly on your phone'
-        ],
-        correctAnswer: 1,
-        category: 'Threat Recognition & Response', // Will be replaced with category ID dynamically
+      question: '4. Which of the following is a common characteristic of phishing emails?',
+      options: [
+        'Professional grammar and formatting',
+        'Urgent requests for sensitive information',
+        'Sent only to IT professionals'
+      ],
+      correctAnswer: 1,
+      category: 'Threat Recognition & Response', // Will be replaced with category ID dynamically
     },
     {
-        question: 'Which of the following is an effective data protection strategy?',
-        options: [
-            'Using a single password for all accounts',
-            'Encrypting sensitive files',
-            'Sharing login credentials with trusted colleagues'
-        ],
-        correctAnswer: 1,
-        category: 'Data Protection', // Will be replaced with category ID dynamically
+      question: '5. What is one of the most reliable methods to ensure data privacy?',
+      options: [
+        'Encrypting sensitive data during storage and transmission',
+        'Deleting unused files regularly',
+        'Sharing data only with close colleagues'
+      ],
+      correctAnswer: 0,
+      category: 'Data Protection', // Will be replaced with category ID dynamically
     },
-];
+  
+    // Scenario-Based Questions
+    {
+      question: '6. An employee receives an email claiming to be from their manager, requesting immediate transfer of funds to a new vendor. The email contains a vague subject and an unverified link. What should the employee do?',
+      options: [
+        'Transfer the funds immediately to avoid delays',
+        'Verify the request by calling the manager directly using known contact details',
+        'Click the link to confirm the request’s details'
+      ],
+      correctAnswer: 1,
+      category: 'Cybersecurity Essentials', // Will be replaced with category ID dynamically
+    },
+    {
+      question: '7. You notice a large amount of unknown traffic from an IP address on your company’s network. What is the first step to take?',
+      options: [
+        'Ignore it, as it might be normal traffic',
+        'Isolate the device from the network and notify the IT team',
+        'Block all traffic from the internet'
+      ],
+      correctAnswer: 1,
+      category: 'Threat Recognition & Response', // Will be replaced with category ID dynamically
+    },
+    {
+      question: '8. A colleague has forgotten their multi-factor authentication device and cannot log in to their account. What is the best course of action?',
+      options: [
+        'Disable MFA for them temporarily',
+        'Use backup recovery codes provided during MFA setup',
+        'Share your own MFA device temporarily'
+      ],
+      correctAnswer: 1,
+      category: 'Authentication Control', // Will be replaced with category ID dynamically
+    },
+    {
+      question: '9. You are tasked with sharing sensitive client data with an external partner. Which action ensures compliance with data protection policies?',
+      options: [
+        'Email the data in an unencrypted attachment for quick access',
+        'Use secure file-sharing platforms and encrypt the data',
+        'Transfer the data using a public cloud storage link'
+      ],
+      correctAnswer: 1,
+      category: 'Data Protection', // Will be replaced with category ID dynamically
+    },
+    {
+      question: '10. An employee uses the same password for their work email and personal accounts. Why is this a risk, and what should be done?',
+      options: [
+        'It is not a risk, as the password is personal',
+        'It creates a vulnerability if one account is compromised; encourage using a password manager',
+        'It simplifies access for IT; leave it as it is'
+      ],
+      correctAnswer: 1,
+      category: 'Online Safety and Privacy', // Will be replaced with category ID dynamically
+    },
+  ];  
 
 // Middleware to dynamically replace category names with IDs
 router.use(async (req, res, next) => {
