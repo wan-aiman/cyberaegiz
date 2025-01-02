@@ -24,19 +24,19 @@ const HomePage = () => {
                         <h3>Phishing Detection</h3><br />
                         <p>Secure your online experience with real-time phishing threat alerts.</p>
                     </a>
-                    <a href="/" className="feature-item">
+                    <a href="/password-management" className="feature-item">
                         <img src="password.png" alt="Password Management" />
                         <h3>Password Management</h3>
                         <p>Create new passwords or analyze your existing passwords with this tool.</p>
                     </a>
-                    <a href="/" className="feature-item">
+                    <a href="/encryption-decryption" className="feature-item">
                         <img src="encryption.png" alt="Encryption & Decryption" />
                         <h3>Encryption & Decryption</h3>
                         <p>Protect your data with powerful encryption & decryption technology.</p>
                     </a>
-                    <a href="/" className="feature-item">
+                    <a href="/education-hub" className="feature-item">
                         <img src="education.png" alt="Education Hub" />
-                        <h3>Education Hub</h3><br />
+                        <h3>Security Awareness Training</h3><br />
                         <p>Expand your knowledge and stay updated on current cybersecurity issues.</p>
                     </a>
                 </div>
