@@ -9,6 +9,9 @@ import EncryptionDecryptionPage from './pages/EncryptionDecryptionPage';
 import EducationHub from './pages/EducationHub';
 import ModuleDetails from './pages/ModuleDetails';
 import QuickAssessment from './pages/QuickAssessment';
+import AboutUs from './pages/AboutUs';
+import TermsOfUse from './pages/TermsOfUse';
+import FAQ from './pages/FAQ';
 
 function App() {
     return (
@@ -49,6 +52,9 @@ function App() {
                     <Route path="/education-hub" element={<EducationHub />} />
                     <Route path="/module/:moduleId" element={<ModuleDetails />} /> {/* Added dynamic route */}
                     <Route path="/education-hub/quick-assessment" element={<QuickAssessment />} />
+                    <Route path="/about" element={<AboutUs />} />
+                    <Route path="/terms-of-use" element={<TermsOfUse />} />
+                    <Route path="/faq" element={<FAQ />} />
                 </Routes>
 
                 <footer>
@@ -58,10 +64,9 @@ function App() {
                         </Link>
                     </div>
                     <ul className="footer-links">
-                        <li><Link to="/">About Us</Link></li>
-                        <li><Link to="/">Privacy Policy</Link></li>
-                        <li><Link to="/">Terms of Use</Link></li>
-                        <li><Link to="/">Contact Us</Link></li>
+                        <li><Link to="/about">About Us</Link></li>
+                        <li><Link to="/terms-of-use">Terms of Use</Link></li>
+                        <li><Link to="/faq">FAQ</Link></li>
                     </ul>
                 </footer>
             </div>

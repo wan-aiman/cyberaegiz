@@ -51,8 +51,9 @@ const EncryptionDecryptionPage = () => {
 
     <div> 
         <div className="hero-content">
-          <h1>Welcome to <span>CyberAegiz</span></h1>
-          <p>Your security is our priority. Generate and check the strength of your passwords here.</p>
+          <h1>Encryption <span>Decryption</span></h1>
+          <p>Lock and unlock your digital valuables with CyberAegiz's robust encryption and decryption services.</p>
+          <img src="EncryptD.png" alt="Encrypt" width={200}/>
         </div>
 
         <div className="encryption-page">

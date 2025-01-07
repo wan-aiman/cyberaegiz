@@ -1,0 +1,52 @@
+.about-us {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    line-height: 1.8;
+    padding: 20px;
+    background-color: #f9fafb;
+}
+
+.about-us-banner {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(45deg, #01ed07, #00d906);
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.about-us-banner h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.about-us-banner p {
+    font-size: 1.25rem;
+}
+
+.about-us-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-us-content h2 {
+    color: #01ed07;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.about-us-content p {
+    margin-bottom: 20px;
+    font-size: 1.125rem;
+}
+
+.about-us-content ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.about-us-content ul li {
+    font-size: 1.125rem;
+    margin-bottom: 10px;
+}

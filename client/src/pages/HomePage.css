@@ -73,6 +73,11 @@ body {
     gap: 20px;
 }
 
+.feature-grid a {
+    color: #000;
+    text-decoration: none;
+}
+
 .feature-item, .audience-item {
     width: 280px;
     padding: 20px;

@@ -43,13 +43,14 @@ const EducationHub = () => {
           Empower your cyber safety with expert knowledge. Explore CyberAegiz's Education Hub today!
           Take a quick assessment to get personalized suggestions on what you should improve.
         </p>
+        <img src="Learn.png" alt="Learn" width={200}/>
       </div>
 
       <div className="quick-assessment-buttons"><button
           className="quick-assessment-btn"
           onClick={() => navigate('/education-hub/quick-assessment')}
         >
-          Quick Assessment
+          Take A Quick Assessment Now
         </button></div>
 
       <div className="category-buttons">

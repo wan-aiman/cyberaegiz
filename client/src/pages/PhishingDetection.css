@@ -464,3 +464,30 @@ nav {
     font-size: 1.2rem;
     color: #333;
 }
+
+.safety-advice {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f8f9fa; /* Light gray for distinction */
+    border: 2px solid #00FF08;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.safety-advice p {
+    font-size: 16px;
+    margin-top: 5px;
+    line-height: 1.5;
+}
+
+/* Safe text - Dark green */
+.safe-text {
+    color: #006400; /* Dark green */
+    font-weight: bold;
+}
+
+/* Unsafe text - Red */
+.unsafe-text {
+    color: #b22222; /* Firebrick red */
+    font-weight: bold;
+}

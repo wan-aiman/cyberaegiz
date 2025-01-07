@@ -9,7 +9,6 @@ const HomePage = () => {
                 <div className="welcome-text">
                     <h1>Welcome to <span className="highlight">CyberAegiz</span></h1>
                     <p>Your security is our priority. Explore our cutting-edge cybersecurity solutions that protect your digital assets effectively. From threat detection to responsive action, our features cover all aspects of security.</p><br />
-                    <a href="#" className="learn-more">Learn More</a>
                 </div>
                 <div className="welcome-image">
                     <img src="homeSecAlert.png" alt="Security Alert" />
@@ -47,7 +46,6 @@ const HomePage = () => {
                     <div className="fortify-subtext">
                         <h2>Fortifying Your Digital Life</h2>
                         <p>Get all of your cybersecurity needs from here and nowhere else. Strengthen the security of your digital life now.</p>
-                        <a href="#" className="register-now">Register Now</a>
                     </div>
                     <img src="fortify.png" alt="Fortify" /><br />
                 </div>

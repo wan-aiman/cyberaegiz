@@ -97,8 +97,9 @@ function PasswordManagement() {
     <main className="">
       
         <div className="hero-content">
-          <h1>Welcome to <span>CyberAegiz</span></h1>
+          <h1>Password <span>Management</span></h1>
           <p>Your security is our priority. Generate and check the strength of your passwords here.</p>
+          <img src="PasswordHacker.png" alt="Password" width={200}/>
         </div>
 
       <section className="password-management">

@@ -10,7 +10,7 @@ const PhishingDetectionPage = () => {
     const [summary, setSummary] = useState(null);
     const [error, setError] = useState(null);
     const [fileNames, setFileNames] = useState('');
-
+    const detectionRateThreshold = 0.1; // 10% threshold for flagging
     const apiKey = process.env.REACT_APP_VIRUSTOTAL_API_KEY;
 
     const encodeBase64 = (input) => {
@@ -147,8 +147,9 @@ const PhishingDetectionPage = () => {
         <div className="phishing-detection-page">
 
         <div className="hero-content">
-          <h1>Welcome to <span>CyberAegiz</span></h1>
-          <p>Your security is our priority. Generate and check the strength of your passwords here.</p>
+          <h1>Phishing <span>Detection</span></h1>
+          <p>Analyze suspicious files, domains, IPs, and URLs to identify malware and security breaches.</p>
+                    <img src="PhishingDetection.png" alt="Phishing" width={200}/>
         </div>
 
             {/* Analysis Container */}
@@ -198,6 +199,38 @@ const PhishingDetectionPage = () => {
                         )}
                     </div>
                 )}
+{result || summary ? (
+    <div className="safety-advice">
+        {result && (
+            <p
+                className={
+                    result.malicious / result.total_engines > detectionRateThreshold
+                        ? "unsafe-text"
+                        : "safe-text"
+                }
+            >
+                {result.malicious / result.total_engines > detectionRateThreshold
+                    ? "Based on the analysis, this resource is unsafe to use. We recommend avoiding it."
+                    : "This resource appears safe based on the analysis. Please proceed with caution."}
+            </p>
+        )}
+        {summary && (
+            <p
+                className={
+                    summary.detections / summary.total_engines > detectionRateThreshold
+                        ? "unsafe-text"
+                        : "safe-text"
+                }
+            >
+                {summary.detections / summary.total_engines > detectionRateThreshold
+                    ? "This file has been flagged as unsafe. Please do not open or share it."
+                    : "The file appears safe to use. However, always exercise caution."}
+            </p>
+        )}
+    </div>
+) : null}
+
+
             </div>
 
             {/* Information Section */}
