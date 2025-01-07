@@ -16,6 +16,7 @@ function PasswordManagement() {
   const [avoidDuplicates, setAvoidDuplicates] = useState(false);
   const [timeToCrack, setTimeToCrack] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [copyFeedback, setCopyFeedback] = useState(false);
 
   // Generate Password
   const generatePassword = async () => {
@@ -86,6 +87,12 @@ function PasswordManagement() {
     setShowPassword(!showPassword);
   };
 
+  const handleCopy = () => {
+    navigator.clipboard.writeText(generatedPassword); // Replace `generatedPassword` with your password variable
+    setCopyFeedback(true); // Show feedback
+    setTimeout(() => setCopyFeedback(false), 2000); // Hide feedback after 2 seconds
+};
+
   return (
     <main className="">
       
@@ -116,9 +123,16 @@ function PasswordManagement() {
             onChange={(e) => setPasswordLength(Number(e.target.value))}
           />
           <input type={showPassword ? "text" : "password"} value={generatedPassword} readOnly />
+          <div className="button-group">
           <button onClick={togglePasswordVisibility}>{showPassword ? "Hide" : "Show"}</button>
-          <button onClick={() => navigator.clipboard.writeText(generatedPassword)}>Copy</button>
+          <div style={{ position: 'relative' }}>
+    <button onClick={handleCopy}>Copy</button>
+    {copyFeedback && (
+        <span className="copy-feedback">Copied!</span>
+    )}
+    </div>
           <button onClick={generatePassword} style={{ marginLeft: '10px' }}>Generate Password</button>
+          </div>
           <div className="options">
             <label><input type="checkbox" checked={includeUppercase} onChange={() => setIncludeUppercase(!includeUppercase)} /> A-Z</label>
             <label><input type="checkbox" checked={includeLowercase} onChange={() => setIncludeLowercase(!includeLowercase)} /> a-z</label>

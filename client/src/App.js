@@ -33,7 +33,9 @@ function App() {
                             </li>
                             <li><Link to="/education-hub">Security Awareness Training</Link></li>
                             <div className="login">
-                                <Link to="/" className="login-button">Login</Link>
+                            <a href="https://api.whatsapp.com/send/?phone=60189792807&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" className="login-button">
+                            Contact Us
+                            </a>
                             </div>
                         </ul>
                     </nav>
