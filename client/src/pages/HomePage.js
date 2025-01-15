@@ -1,5 +1,6 @@
 // src/HomePage.js
 import React from 'react';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import './HomePage.css';
 
 const HomePage = () => {
@@ -18,26 +19,26 @@ const HomePage = () => {
             <section className="features">
                 <h2>Secure Your Digital World In a Single System</h2>
                 <div className="feature-grid">
-                    <a href="/phishing-detection" className="feature-item">
+                    <Link to="/phishing-detection" className="feature-item">
                         <img src="phishing.png" alt="Phishing Detection" />
                         <h3>Phishing Detection</h3><br />
                         <p>Secure your online experience with real-time phishing threat alerts.</p>
-                    </a>
-                    <a href="/password-management" className="feature-item">
+                    </Link>
+                    <Link to="/password-management" className="feature-item">
                         <img src="password.png" alt="Password Management" />
                         <h3>Password Management</h3>
                         <p>Create new passwords or analyze your existing passwords with this tool.</p>
-                    </a>
-                    <a href="/encryption-decryption" className="feature-item">
+                    </Link>
+                    <Link to="/encryption-decryption" className="feature-item">
                         <img src="encryption.png" alt="Encryption & Decryption" />
                         <h3>Encryption & Decryption</h3>
                         <p>Protect your data with powerful encryption & decryption technology.</p>
-                    </a>
-                    <a href="/education-hub" className="feature-item">
+                    </Link>
+                    <Link to="/education-hub" className="feature-item">
                         <img src="education.png" alt="Education Hub" />
                         <h3>Security Awareness Training</h3><br />
                         <p>Expand your knowledge and stay updated on current cybersecurity issues.</p>
-                    </a>
+                    </Link>
                 </div>
             </section>
             
