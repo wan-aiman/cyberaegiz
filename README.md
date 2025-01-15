@@ -15,7 +15,7 @@ This guide provides instructions to run the **CyberAegiz** website locally using
 Docker simplifies the process of setting up and running the project by creating containers for all services (backend, frontend, and database). Follow the steps below:
 
 ### **Prerequisites**
-1. Install [Docker](https://www.docker.com/get-started) and [Docker Compose](https://docs.docker.com/compose/install/).
+1. Install [Docker Desktop](https://www.docker.com/get-started)
 
 ### **Steps**
 1. **Clone the repository**:
